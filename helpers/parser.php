@@ -1,0 +1,6 @@
+<?php
+
+/* 
+ * View Template Parser
+ */
+

@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS 'dashboardWidgets'(
 
 /*
 -
-- Table for the widgets
+- Table for the widgets used on the dashboard
 -
 */
 CREATE TABLE IF NOT EXISTS 'widget'(

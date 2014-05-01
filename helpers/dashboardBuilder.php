@@ -29,5 +29,10 @@ function buildDashboard(){
 }
 
 function getWidgets(){
+    $numOfWidgets = mysql_query("SELECT * FROM dashboardWidgets WHERE dashboardID = SessionID");
     
+    //Cycle through all the number of widgets
+    for ($i = 1; $i <= $numOfWidgets; $i++){
+        
+    }
 }

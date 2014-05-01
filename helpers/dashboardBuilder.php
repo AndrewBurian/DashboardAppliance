@@ -15,7 +15,7 @@
  * @return: void
  * 
  */
-function build(){
+function buildDashboard(){
     
 
 }

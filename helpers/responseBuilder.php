@@ -15,7 +15,9 @@
  * 
  */
 function sendDashboard($html){
-    
+    $response = new SimpleXMLElement("<response>" . $html . "</response>");
+    $response->addAttribute('type', 'dashboard');
+    echo $response->asXML();
 
 }
 
@@ -29,6 +31,17 @@ function sendDashboard($html){
  * 
  */
 function sendWidget($widgets){
-    
-    
+    $response = new SimpleXMLElement("<response></response>");
+    $response->addAttribute('type', 'widget');
+    foreach($widgets as $widget){
+        $child = $response->addChild('widget', $widget['html']);
+        $child->addAttribute('id', $widget['id']);
+    }
+    echo $response->asXML();
+}
+
+function sendPageReload(){
+    $response = new SimpleXMLElement("<response></response>");
+    $response->addAttribute('type', 'reload');
+    echo $response->asXML();
 }

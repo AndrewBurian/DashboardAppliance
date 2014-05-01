@@ -18,7 +18,7 @@ function parse($params, $view){
     $l_delim = '{';
     $r_delim = '}';
     
-    $template = file_get_contents('/views/' . $view);
+    $template = file_get_contents('views/' . $view);
     
     if(!is_array($params)){
         return "";

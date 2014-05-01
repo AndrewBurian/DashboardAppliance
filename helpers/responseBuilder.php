@@ -44,4 +44,4 @@ function sendPageReload(){
     $response = new SimpleXMLElement("<response></response>");
     $response->addAttribute('type', 'reload');
     echo $response->asXML();
-}
+}   

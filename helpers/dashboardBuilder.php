@@ -19,7 +19,15 @@ require_once 'config/database.php';
 function buildDashboard(){
     //Connect to the Database
     //connectToDB();  
-    
+    //get widgets
+    //
+    //loop through widget
+    //build widget function
+    //build snippet html
+    //send response
     
 }
 
+function getWidgets(){
+    
+}

@@ -5,9 +5,8 @@
  * 
  */
 
-$csvFile = "/testdata_delete/community_centres.csv";
+$csvFile = "testdata_delete/community_centres.csv";
 
-parseCSV($csvFile);
 /**
  * Parse the CSV File for the information.
  * Usze the fgetcsv

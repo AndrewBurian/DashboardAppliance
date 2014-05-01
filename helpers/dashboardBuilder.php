@@ -7,8 +7,6 @@ error_reporting(-1);
  */
 require_once 'config/database.php';
 
-buildDashboard();
-
 /**
  * Build the dashboard
  * 
@@ -19,6 +17,9 @@ buildDashboard();
  * 
  */
 function buildDashboard(){
-    connectToDB();  
+    //Connect to the Database
+    //connectToDB();  
+    
+    
 }
 

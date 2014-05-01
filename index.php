@@ -9,7 +9,7 @@
  */
 
 require_once 'controllers/widgetUpdater.php';
-require_once 'controllers/dashboardBuilder.php';
+require_once 'helpers/dashboardBuilder.php';
 require_once 'helpers/parser.php';
 
 // check to ensure the client has sent their ID with the request

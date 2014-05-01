@@ -5,3 +5,30 @@
  * client can parse
  */
 
+/**
+ * Send the Dashboard to the client
+ * 
+ * @Designer: 
+ * @Programmer:
+ * 
+ * @param: String of HTML snippet
+ * 
+ */
+function sendDashboard($html){
+    
+
+}
+
+/**
+ * Send the widget to the client
+ * 
+ * @Designer: 
+ * @Programmer:
+ * 
+ * @param: Associated array of widgets
+ * 
+ */
+function sendWidget($widgets){
+    
+    
+}

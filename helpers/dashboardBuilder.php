@@ -6,3 +6,16 @@
  * Then calls the responseBuilder to send it to the client
  */
 
+/**
+ * Build the dashboard
+ * 
+ * @Designer: 
+ * @Programmer:
+ * 
+ * @return: void
+ * 
+ */
+function build(){
+    
+
+}

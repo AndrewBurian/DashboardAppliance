@@ -6,4 +6,4 @@
  * and open the template in the editor.
  */
 
-include 'ControlPanel/index.html';
+header('location: http://localhost/DashboardAppliance/ControlPanel/index.html');

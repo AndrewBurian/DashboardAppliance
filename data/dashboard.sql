@@ -1,10 +1,17 @@
+/*
+-
+-   Database for the widgets/dashboard and the control panel
+-
+-
+-
+*/
 
-DROP TABLE IF EXISTS pi;
 DROP TABLE IF EXISTS piDashboards;
 DROP TABLE IF EXISTS dashboardWidgets;
 DROP TABLE IF EXISTS widget;
 DROP TABLE IF EXISTS dashboard;
-
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS pi;
 /*
 -
 - Table for the pi`s
@@ -25,7 +32,9 @@ CREATE TABLE IF NOT EXISTS `pi`(
 */
 CREATE TABLE IF NOT EXISTS `dashboard`(
         `id` int(5) NOT NULL AUTO_INCREMENT,
-        `gridFormat` TEXT,
+        `name` varchar(256),
+        `TTL` int(5),
+        `gridFormat` TEXT,     
     PRIMARY KEY (`id`)
 );
 
@@ -38,7 +47,9 @@ CREATE TABLE IF NOT EXISTS `widget`(
     `id` int(5) NOT NULL AUTO_INCREMENT,
     `type` varchar(256),
     `desc` TEXT,
-    `modelName` varchar(256), 
+    `modelName` varchar(256),
+    `style` TEXT,
+    `TTL` int(5),
     PRIMARY KEY (`id`)
 );
 

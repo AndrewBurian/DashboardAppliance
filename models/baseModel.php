@@ -1,23 +1,13 @@
 <?php
 
-/* 
- * 
- * 
+/**
+ * The abstract base for every data model
  */
-class BaseModel{
+abstract class BaseModel{
     
     /**
-     * Get the Data 
-     * 
-     * @Designer: 
-     * @Programmer:
-     * 
-     * @param: 
-     * @return: Associated Array of data
-     * 
+     * Should reuturn an associative array of data, where each key is a name
+     * of a template element that will be replaced with the corresponding value.
      */
-    function getData(){
-
-       return $datas;
-    }
+    abstract function getData();
 }

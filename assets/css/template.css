@@ -1,0 +1,15 @@
+/**
+ * The css for the template of the widgets/webpage
+ * 
+ * @author: Jordan Marling
+ * 
+ */
+
+body {
+	background-color: #00AA00;
+}
+
+#dashboard {
+	width: 100%;
+	height: 100%;
+}

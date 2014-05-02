@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `pi`(
     `id` int(5) NOT NULL AUTO_INCREMENT,
     `city` varchar(256) NOT NULL,
     `department` varchar(256),
-    `desc` TEXT,
+    `piDesc` TEXT,
   PRIMARY KEY (`id`)
 ); 
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `pi`(
 */
 CREATE TABLE IF NOT EXISTS `dashboard`(
         `id` int(5) NOT NULL AUTO_INCREMENT,
-        `name` varchar(256),
+        `dashboardName` varchar(256),
         `TTL` int(5),
         `gridFormat` TEXT,     
     PRIMARY KEY (`id`)
@@ -45,10 +45,10 @@ CREATE TABLE IF NOT EXISTS `dashboard`(
 */
 CREATE TABLE IF NOT EXISTS `widget`(
     `id` int(5) NOT NULL AUTO_INCREMENT,
-    `type` varchar(256),
-    `desc` TEXT,
+    `widgetType` varchar(256),
+    `widgetDesc` TEXT,
     `modelName` varchar(256),
-    `style` TEXT,
+    `widgetStyle` TEXT,
     `TTL` int(5),
     PRIMARY KEY (`id`)
 );
@@ -78,3 +78,21 @@ CREATE TABLE IF NOT EXISTS `dashboardWidgets`(
         FOREIGN KEY (`dashboardID`) REFERENCES dashboard(`id`),
         FOREIGN KEY (`widgetID`) REFERENCES widget(`id`)
 );
+
+INSERT INTO pi (id, city, department, piDesc) VALUES 
+(1, 'Vancouver', 'Garbage Collection','Test widget data'),
+(2, 'Ottawa', 'Garbage Collection','Test widget data');
+
+INSERT INTO dashboard (id, dashboardName, TTL, gridFormat) VALUES
+(1, 'VancouverDashboard', 10, 'test the grid'),
+(2, 'OttawaDashboard', 10, 'test the grid');
+
+INSERT INTO widget (id, widgetType, widgetDesc, modelName, widgetStyle, TTL) VALUES
+(1, 'Number','This is a number widget','VancouverGarbage', 'g', 10),
+(2, 'graph','This is a graph widget','VancouverGarbage', 'g', 10);
+
+INSERT INTO piDashboards (piNumber, dashboardID) VALUES
+(1, 1);
+
+INSERT INTO dashboardWidgets (dashboardID, widgetID) VALUES 
+(1, 1);

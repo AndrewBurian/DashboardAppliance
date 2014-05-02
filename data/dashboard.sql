@@ -95,4 +95,5 @@ INSERT INTO piDashboards (piNumber, dashboardID) VALUES
 (1, 1);
 
 INSERT INTO dashboardWidgets (dashboardID, widgetID) VALUES 
-(1, 1);
+(1, 1),
+(1, 2);

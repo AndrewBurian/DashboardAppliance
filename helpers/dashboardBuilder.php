@@ -19,10 +19,9 @@ require_once 'config/database.php';
 function buildDashboard(){
     //Connect to the Database
     $connection = connectToDB();
-    
-    getWidgets($connection);
     //get widgets
-    //
+    getWidgets($connection);
+  
     //loop through widget
     //build widget function
     //build snippet html
@@ -38,13 +37,9 @@ function buildDashboard(){
 function getWidgets($connection){
     $numOfWidgets = $connection->query("SELECT * FROM dashboardWidgets WHERE dashboardID = '{$_SESSION['dashboardID']}';",MYSQLI_USE_RESULT);
     
-    while ($row = mysql_fetch_array($numOfWidgets)) {
-        var_dump($row);
+    while ($count = mysqli_fetch_row($numOfWidgets)) {
+        var_dump($count);
+        $count++;
     }
-    $count = mysqli_fetch_array($numOfWidgets);
-    var_dump($count);
-    //Cycle through all the number of widgets
-    for ($i = 1; $i <= $numOfWidgets; $i++){
-        
-    }
+    return $count;
 }

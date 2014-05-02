@@ -8,7 +8,7 @@
  * @date    April 30, 2014
  */
 
-require_once 'controllers/dashboardUpdater.php';
+//require_once 'controllers/dashboardUpdater.php';
 require_once 'controllers/widgetUpdater.php';
 
 // check to ensure the client has sent their ID with the request

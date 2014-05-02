@@ -6,7 +6,8 @@ error_reporting(-1);
  * Then calls the responseBuilder to send it to the client
  */
 require_once 'config/database.php';
-
+require_once 'helpers/widgetBuilder.php';
+require_once 'helpers/responseBuilder.php';
 /**
  * Build the dashboard
  * 
@@ -17,29 +18,35 @@ require_once 'config/database.php';
  * 
  */
 function buildDashboard(){
+    //hold snippet of html
+    $response = "";
     //Connect to the Database
     $connection = connectToDB();
-    //get widgets
-    getWidgets($connection);
-  
-    //loop through widget
-    //build widget function
-    //build snippet html
-    //send response
-    
+    //Get the total number of Widgets
+    $widgets = getWidgets($connection);
+    //build html snippet
+    foreach($widget as $widgets){
+        $response .= $widget['whtml'];
+    }
+    //Send Response to Client
+    sendDashboard($response);
 }
 
 /**
  * Get the number of widgets for the dashboard
  * 
- * @param type $connection
+ * @Designer: Mat Siwoski
+ * @Programmer: Mat Siwoski
+ * 
+ * @param: $connection - connection to the database
  */
 function getWidgets($connection){
-    $numOfWidgets = $connection->query("SELECT * FROM dashboardWidgets WHERE dashboardID = '{$_SESSION['dashboardID']}';",MYSQLI_USE_RESULT);
+    $widgets = array();
+    $widgetData = $connection->query("SELECT * FROM dashboardWidgets WHERE dashboardID = '{$_SESSION['dashboardID']}';",MYSQLI_USE_RESULT);
     
-    while ($count = mysqli_fetch_row($numOfWidgets)) {
-        var_dump($count);
-        $count++;
+    while ($row = mysqli_fetch_row($widgetData)) {
+        $widgets[] = buildWidget($row['widgetID']);
     }
-    return $count;
+    
+    return $widgets;
 }

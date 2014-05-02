@@ -59,10 +59,10 @@ CREATE TABLE IF NOT EXISTS `widget`(
 -
 */
 CREATE TABLE IF NOT EXISTS `piDashboards`(
-    `piNumber` int(5) NOT NULL,
+    `piID` int(5) NOT NULL,
     `dashboardID` int(5) NOT NULL,
-    PRIMARY KEY (`piNumber`, `dashboardID`),
-        FOREIGN KEY (`piNumber`) REFERENCES pi(`id`),
+    PRIMARY KEY (`piID`, `dashboardID`),
+        FOREIGN KEY (`piID`) REFERENCES pi(`id`),
         FOREIGN KEY (`dashboardID`) REFERENCES dashboard(`id`)
 );
 
@@ -91,7 +91,7 @@ INSERT INTO widget (id, widgetType, widgetDesc, modelName, widgetStyle, TTL) VAL
 (1, 'Number','This is a number widget','VancouverGarbage', 'g', 10),
 (2, 'graph','This is a graph widget','VancouverGarbage', 'g', 10);
 
-INSERT INTO piDashboards (piNumber, dashboardID) VALUES
+INSERT INTO piDashboards (piID, dashboardID) VALUES
 (1, 1);
 
 INSERT INTO dashboardWidgets (dashboardID, widgetID) VALUES 

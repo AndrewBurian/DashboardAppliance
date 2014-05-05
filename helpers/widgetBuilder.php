@@ -18,8 +18,8 @@ include_once 'parser.php';
  */
 function buildWidget($id) {
 
-    $widgetType = mysql_query("SELECT type FROM widget WHERE id='$id'");
-    $widgetModelName = mysql_query("SELECT modelName FROM widget WHERE id='$id'");
+    $widgetType = pg_query("SELECT type FROM widget WHERE id='$id'");
+    $widgetModelName = pg_query("SELECT modelName FROM widget WHERE id='$id'");
 
     /* get the appropriate data from the given model */
     $widgetData = $widgetModelName::getData();

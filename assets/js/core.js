@@ -48,8 +48,18 @@ function getUpdate() {
 		
 		if (httpUpdate.status == 200 && httpUpdate.readyState == 4) {
 			
+			if (httpUpdate.responseText.length == 0) {
+				console.log("Error loading data.");
+				return;
+			}
+			
+			console.log(httpUpdate.responseText);
+			
+			var parser = new DOMParser();
+			var xml = parser.parseFromString(httpUpdate.responseText, "application/xml");
+			
 			//get the response node and the type of update
-			var rootNode = httpUpdate.responseXML.getElementsByTagName("response")[0];
+			var rootNode = xml.getElementsByTagName("response")[0];
 			var type = rootNode.getAttribute("type");
 			
 			switch(type) {
@@ -129,4 +139,6 @@ function updateWebpage(xml) {
 }
 
 //run the initialize function to start the javascript.
-initialize();
+window.onload = function() {
+	initialize();
+}

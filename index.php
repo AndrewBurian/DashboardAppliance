@@ -24,6 +24,7 @@ session_start();
 // check to see if this is the client's first connection
 if(!isset($_SESSION['active'])){
     $_SESSION['active'] = true;
+    $_SESSION['dashboard'] = time(); // set the time to update now, so the client can get the dashboard.
     
     // echo the first time html shell
     $view = array();
@@ -33,8 +34,8 @@ if(!isset($_SESSION['active'])){
 
 // Session is already started
 
-if($_SESSION['dashboard'] > time()){
-    build();
+if($_SESSION['dashboard'] <= time()){
+    buildDashboard();
     exit;
 }
 

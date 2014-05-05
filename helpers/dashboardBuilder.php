@@ -5,9 +5,11 @@ error_reporting(-1);
  * into an html fragment.
  * Then calls the responseBuilder to send it to the client
  */
+
 require_once 'config/database.php';
 require_once 'helpers/widgetBuilder.php';
 require_once 'helpers/responseBuilder.php';
+
 /**
  * Build the dashboard
  * 
@@ -42,11 +44,11 @@ function buildDashboard(){
  */
 function getWidgets($connection){
     $widgets = array();
-    $widgetData = $connection->query("SELECT * FROM dashboardWidgets WHERE dashboardID = '{$_SESSION['dashboardID']}';",MYSQLI_USE_RESULT);
-    
+    $widgetData = pg_query($connection, "SELECT * FROM dashboardWidgets WHERE dashboardID = '{$_SESSION['dashboardID']}';");
+    //$widgetData = $connection->query("SELECT * FROM dashboardWidgets WHERE dashboardID = '{$_SESSION['dashboardID']}';",MYSQLI_USE_RESULT);
+
     while ($row = mysqli_fetch_row($widgetData)) {
-        $widgets[] = buildWidget($row['widgetID']);
+        $widgets[] = buildWidget($connection, $row['widgetID']);
     }
-    
     return $widgets;
 }

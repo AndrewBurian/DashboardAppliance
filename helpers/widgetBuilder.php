@@ -16,20 +16,21 @@ include_once 'parser.php';
  * @return: String of HTML snippet
  * 
  */
-function buildWidget($id) {
+function buildWidget($id, $widgetType, $widgetModelName) {
 
-    $widgetType = pg_query("SELECT type FROM widget WHERE id='$id'");
-    $widgetModelName = pg_query("SELECT modelName FROM widget WHERE id='$id'");
+	require_once "models/{$widgetModelName}.php";
 
     /* get the appropriate data from the given model */
-    $widgetData = $widgetModelName::getData();
+    $widgetModel = new $widgetModelName();
+    $widgetData = $widgetModel->getData();
+    
     /* parse the data and get the html fragment for the widget */
     $html = parse($widgetData, $widgetType . "Widget.php");
     /* assign the widget id and the html fragment to an array */
-    $widgetArray = [
-        $wid => $id,
-        $whtml => $html
-    ];
-
+    $widgetArray = array(
+        'wid' => $id,
+        'whtml' => $html
+    );
+	
     return $widgetArray;
 }

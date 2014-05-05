@@ -15,10 +15,9 @@
  * 
  */
 function sendDashboard($html){
-    $response = new SimpleXMLElement("<response>" . $html . "</response>");
+    $response = new SimpleXMLElement("<response>$html</response>");
     $response->addAttribute('type', 'dashboard');
     echo $response->asXML();
-
 }
 
 /**

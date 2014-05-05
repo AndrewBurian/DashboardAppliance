@@ -25,6 +25,7 @@ session_start();
 if(!isset($_SESSION['active'])){
     $_SESSION['active'] = true;
     $_SESSION['dashboard'] = time(); // set the time to update now, so the client can get the dashboard.
+    $_SESSION['dashboardID'] = $_GET['id'];
     
     // echo the first time html shell
     $view = array();

@@ -25,7 +25,7 @@ function buildDashboard(){
     //Get the total number of Widgets
     $widgets = getWidgets($connection);
     //build html snippet
-    foreach($widget as $widgets){
+    foreach($widgets as $widget){
         $response .= $widget['whtml'];
     }
     //Send Response to Client
@@ -42,10 +42,15 @@ function buildDashboard(){
  */
 function getWidgets($connection){
     $widgets = array();
-    $widgetData = $connection->query("SELECT * FROM dashboardWidgets WHERE dashboardID = '{$_SESSION['dashboardID']}';",MYSQLI_USE_RESULT);
+    //$widgetData = $connection->query("SELECT * FROM dashboardWidgets WHERE dashboardID = '{$_SESSION['dashboardID']}';",MYSQLI_USE_RESULT);
+    $widgetData = $connection->query("SELECT * FROM dashboardWidgets 
+											JOIN widget 
+												ON dashboardWidgets.widgetID=widget.id 
+											WHERE dashboardID='{$_SESSION['dashboardID']}';"
+									,MYSQLI_USE_RESULT);
     
-    while ($row = mysqli_fetch_row($widgetData)) {
-        $widgets[] = buildWidget($row['widgetID']);
+    while ($row = mysqli_fetch_assoc($widgetData)) {
+        $widgets[] = buildWidget($row['id'], $row['widgetType'], $row['modelName']);
     }
     
     return $widgets;

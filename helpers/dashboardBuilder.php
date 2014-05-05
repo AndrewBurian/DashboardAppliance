@@ -27,7 +27,7 @@ function buildDashboard(){
     //Get the total number of Widgets
     $widgets = getWidgets($connection);
     //build html snippet
-    foreach($widget as $widgets){
+    foreach($widgets as $widget){
         $response .= $widget['whtml'];
     }
     //Send Response to Client
@@ -44,11 +44,9 @@ function buildDashboard(){
  */
 function getWidgets($connection){
     $widgets = array();
-    $widgetData = pg_query($connection, "SELECT * FROM dashboardWidgets WHERE dashboardID = '{$_SESSION['dashboardID']}';");
-    //$widgetData = $connection->query("SELECT * FROM dashboardWidgets WHERE dashboardID = '{$_SESSION['dashboardID']}';",MYSQLI_USE_RESULT);
-
-    while ($row = mysqli_fetch_row($widgetData)) {
-        $widgets[] = buildWidget($connection, $row['widgetID']);
+    $widgetData = pg_query($connection, "SELECT * FROM dashboardWidgets JOIN widget ON dashboardWidgets.widgetID = widget.id WHERE dashboardID = '{$_SESSION['dashboardID']}';");
+    while ($row = pg_fetch_assoc($widgetData)){
+        $widgets[] = buildWidget($row['id'], $row['widgetType'], $row['modelName']);
     }
     return $widgets;
 }

@@ -7,7 +7,7 @@ class testTextModel extends baseModel {
 	function getData() {
 		
 		$params = array();
-		$params['title'] = "testTextModel Title";
+		$params['title'] = "Jordan's Widget";
 		$params['text'] = "testTextModel Text";
 		$params['footer'] = "testTextModel Footer";
 		

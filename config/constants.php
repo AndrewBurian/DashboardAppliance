@@ -17,3 +17,12 @@ define("dbName", "dashboard");
 //Database Host
 define("dbHost", "localhost");
 
+//postgreSQL Database Username
+define("pgdbUser", "team17");
+//Database Password
+define("pgdbPassword", "password");
+//Database Name
+define("pgdbName", "dashboardpg");
+//Database Host
+define("pgdbHost", "localhost");
+

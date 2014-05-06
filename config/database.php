@@ -16,10 +16,11 @@ require_once 'constants.php';
  * 
  */
 function connectToDB(){
-    $con = mysqli_connect(dbHost, dbUser, dbPassword, dbName);
+    $con = pg_connect("host=127.0.0.1 port=5432 dbname=dashboardpg user=team17 password=password");
+    /*$con = mysqli_connect(dbHost, dbUser, dbPassword, dbName);
     if (mysqli_connect_errno()){
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
         exit();
-    }
+    }*/
     return $con;
 }

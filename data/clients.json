@@ -1,0 +1,8 @@
+{
+	"clients": [
+	
+		{ "id": 1, "dashboards": [ "numberTestDashboard", "graphTestDashboard" ] },
+		{ "id": 2, "dashboards": [ "numberTestDashboard" ] }
+		
+	]
+}

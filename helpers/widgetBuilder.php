@@ -18,7 +18,7 @@ include_once 'parser.php';
  */
 function buildWidget($id, $widgetType, $widgetModelName) {
 
-	require_once "models/{$widgetModelName}.php";
+    require_once "models/{$widgetModelName}.php";
 
     /* get the appropriate data from the given model */
     $widgetModel = new $widgetModelName();

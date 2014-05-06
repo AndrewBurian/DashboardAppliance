@@ -1,0 +1,9 @@
+{
+	"widgets": [
+		
+		[ "numberTestWidget", "graphTestWidget" ],
+		[ "numberTestWidget" ],
+		[ "numberTestWidget" ]
+		
+	]
+}

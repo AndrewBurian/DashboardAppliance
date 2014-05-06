@@ -4,7 +4,6 @@
  * Constants used throughout the Dashboard Appliance
  */
 
-
 /**
  * Database Constants
  */
@@ -25,4 +24,5 @@ define("pgdbPassword", "password");
 define("pgdbName", "dashboardpg");
 //Database Host
 define("pgdbHost", "localhost");
+
 

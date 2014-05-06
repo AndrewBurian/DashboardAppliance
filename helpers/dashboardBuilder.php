@@ -46,7 +46,7 @@ function getWidgets($connection){
     $widgets = array();
     $widgetData = pg_query($connection, "SELECT * FROM dashboardWidgets JOIN widget ON dashboardWidgets.widgetID = widget.id WHERE dashboardID = '{$_SESSION['dashboardID']}';");
     while ($row = pg_fetch_assoc($widgetData)){
-        $widgets[] = buildWidget($row['id'], $row['widgetType'], $row['modelName']);
+        $widgets[] = buildWidget($row['id'], $row['widgettype'], $row['modelname']);
     }
     return $widgets;
 }

@@ -1,0 +1,6 @@
+{ 
+	"model": "testCyclingTextModel", 
+	"type": "cyclingNumber", 
+	"width": 10, 
+	"height": 2
+}

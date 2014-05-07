@@ -45,3 +45,16 @@ function getWidget($widgetId){
     $data = json_decode($string, true);
     return $data;
 }
+
+/**
+ * Gets the length of time that the dashboard will stay on screen for
+ * 
+ * @author  Jordan Marling
+ * @param   mixed $dashboardId         The id of the dashboard
+ * @return  array                   An array of widget properties
+ */
+function getDashboardTime($dashboardId){
+    $string = file_get_contents('data/dashboards/' . $dashboardId . '.json');
+    $data = json_decode($string, true);
+    return $data['time'];
+}

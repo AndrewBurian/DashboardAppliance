@@ -5,6 +5,7 @@
 var updateInterval = 0.1;					//Update time in minutes
 var piID = "1";							//The identifier of the raspberry pi
 var version = "0.1";					//The current version of the dashboard
+var gridster;
 
 /**
  * Initializes the javascript.
@@ -20,18 +21,17 @@ var version = "0.1";					//The current version of the dashboard
  */
 function initialize() {
 	
+	//initialize gridster
+	gridster = $(".gridster ul").gridster({
+		widget_margins: [10, 10],
+		widget_base_dimensions: [140, 140]
+	}).data('gridster');
+	
 	//get the first update.
 	getUpdate();
 	
-	//then start the timer.
+	//start the update timer.
 	setInterval(getUpdate, updateInterval * 60 * 1000);
-	
-	$(".gridster ul").gridster({
-		widget_margins: [10, 10],
-		widget_base_dimensions: [140, 140]
-	});
-	
-	//$(".gridster ul").gridster().data('gridster').add_widget('<li data-row="1" data-col="1" data-sizex="1" data-sizey="1"><div style="background-color: #F00;width: 100%;height: 100%;margin-left: auto;margin-right: auto;"><span id="loading">Loading...</span></div></li>');
 }
 
 /**
@@ -56,7 +56,7 @@ function getUpdate() {
 		if (httpUpdate.status == 200 && httpUpdate.readyState == 4) {
 			
 			if (httpUpdate.responseText.length == 0) {
-				console.log("Error loading data.");
+				console.log("No data to load.");
 				return;
 			}
 			
@@ -106,20 +106,19 @@ function getUpdate() {
  */
 function updateDashboard(xml) {
 	
-	var element = $(".gridster ul");
-	var gridster = element.gridster().data('gridster');
+	var widgets = xml.getElementsByTagName("widget");
 	
-	var widgets = xml.getElementsByTagName("li");
+	var width, height;
 	
 	gridster.remove_all_widgets();
 	
 	for(var i = 0; i < widgets.length; i++) {
 		
-		gridster.add_widget(widgets[i].outerHTML, 2, 1);
+		width = parseInt(widgets[i].getAttribute("width"));
+		height = parseInt(widgets[i].getAttribute("height"));
 		
+		gridster.add_widget(widgets[i].innerHTML, width, height);
 	}
-	
-	
 	
 }
 

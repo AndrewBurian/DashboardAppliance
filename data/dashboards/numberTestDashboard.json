@@ -1,9 +1,10 @@
 {
+	"time": 1,
 	"widgets": [
 		
-		[ "numberTestWidget", "graphTestWidget" ],
-		[ "numberTestWidget" ],
-		[ "numberTestWidget" ]
+		"cyclingNumberTestWidget",
+		"numberTestWidget",
+		"numberTestWidget"
 		
 	]
 }

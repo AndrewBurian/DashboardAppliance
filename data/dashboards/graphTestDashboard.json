@@ -1,7 +1,8 @@
 {
+	"time": 1,
 	"widgets": [
 	
-		[ "graphTestWidget" ]
+		"numberTestWidget"
 		
 	]
 }

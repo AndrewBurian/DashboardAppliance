@@ -1,5 +1,5 @@
 { 
-	"model": "testTextModel", 
+	"model": "testGraphModel", 
 	"type": "graph", 
 	"width": 5, 
 	"height": 2

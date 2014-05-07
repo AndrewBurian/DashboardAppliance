@@ -17,17 +17,12 @@ require_once 'config/jsonConfig.php';
  * @return: String of HTML snippet
  * 
  */
-<<<<<<< HEAD
-function buildWidget($id, $widgetType, $widgetModelName) {
 
-    require_once "models/{$widgetModelName}.php";
-=======
 function buildWidget($id) {
 	
-	$widget = getWidget($id);
+    $widget = getWidget($id);
 	
-	require_once "models/{$widget['model']}.php";
->>>>>>> origin/Server
+    require_once "models/{$widget['model']}.php";
 
     /* get the appropriate data from the given model */
     $widgetModel = new $widget['model']();

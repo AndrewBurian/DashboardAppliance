@@ -9,6 +9,7 @@ error_reporting(-1);
 require_once 'config/database.php';
 require_once 'helpers/widgetBuilder.php';
 require_once 'helpers/responseBuilder.php';
+require_once 'config/jsonConfig.php';
 
 /**
  * Build the dashboard
@@ -23,13 +24,27 @@ function buildDashboard(){
     //hold snippet of html
     $response = "";
     //Connect to the Database
-    $connection = connectToDB();
+    //$connection = connectToDB();
     //Get the total number of Widgets
-    $widgets = getWidgets($connection);
+    $dashboardList = getDashboardList($_SESSION['clientID']);
+    
+    
+    $widgets = getWidgets($dashboardList[0]);
+    
+    //var_dump($widgets);
     //build html snippet
     foreach($widgets as $widget){
         $response .= $widget['whtml'];
     }
+    
+    $widgets = getWidgets($dashboardList[1]);
+    
+    //var_dump($widgets);
+    //build html snippet
+    foreach($widgets as $widget){
+        $response .= $widget['whtml'];
+    }
+    
     //Send Response to Client
     sendDashboard($response);
 }
@@ -42,11 +57,15 @@ function buildDashboard(){
  * 
  * @param: $connection - connection to the database
  */
-function getWidgets($connection){
+function getWidgets($dashboardID){
     $widgets = array();
-    $widgetData = pg_query($connection, "SELECT * FROM dashboardWidgets JOIN widget ON dashboardWidgets.widgetID = widget.id WHERE dashboardID = '{$_SESSION['dashboardID']}';");
-    while ($row = pg_fetch_assoc($widgetData)){
-        $widgets[] = buildWidget($row['id'], $row['widgetType'], $row['modelName']);
+    
+    //$widgetData = pg_query($connection, "SELECT * FROM dashboardWidgets JOIN widget ON dashboardWidgets.widgetID = widget.id WHERE dashboardID = '{$_SESSION['dashboardID']}';");
+    $widgetData = getWidgetList($dashboardID);
+    foreach ($widgetData as $widget){
+		//echo $widget;
+        $widgets[] = buildWidget($widget[0]);
+
     }
     return $widgets;
 }

@@ -1,7 +1,7 @@
 {
 	"widgets": [
 		
-		[ "numberTestWidget", "graphTestWidget" ],
+		[ "mapTestWidget", "mapTestWidget" ],
 		[ "numberTestWidget" ],
 		[ "numberTestWidget" ]
 		

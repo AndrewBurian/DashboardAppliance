@@ -1,8 +1,13 @@
 {
 	"clients": [
 	
+<<<<<<< HEAD
+		{ "id": 1, "dashboards": [ "numberTestDashboard", "graphTestDashboard" ] },
+		{ "id": 2, "dashboards": [ "twitterTestDashboard" ] }
+=======
 		{ "id": 1, "dashboards": [ "graphTestDashboard", "numberTestDashboard" ] },
 		{ "id": 2, "dashboards": [ "numberTestDashboard" ] }
+>>>>>>> ef92dd1335df7af43efbcc7909715c764964be80
 		
 	]
 }

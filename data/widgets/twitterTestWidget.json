@@ -1,0 +1,6 @@
+{ 
+	"model": "testTwitterModel", 
+	"type": "twitter", 
+	"width": 2, 
+	"height": 2
+}

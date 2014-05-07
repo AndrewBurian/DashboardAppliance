@@ -115,7 +115,7 @@ function updateDashboard(xml) {
 	
 	for(var i = 0; i < widgets.length; i++) {
 		
-		gridster.add_widget(widgets[i].outerHTML, 2, 1);
+		gridster.add_widget(widgets[i].outerHTML, 4, 3);
 		
 	}
 	

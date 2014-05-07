@@ -21,14 +21,17 @@
     }
 
     var locations = {data};
-    
-    
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: mainMap,
-      title: ''
-    });
 
+    var i = 0;
+
+    for (i = 0; i < locations.length; i += 2) {
+        var myLatlng = new google.maps.LatLng(locations[i], locations[i + 1]);
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: mainMap,
+            title: ''
+        });
+    }
 
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>

@@ -50,8 +50,11 @@ class testTwitterModel extends baseModel {
                             ->buildOauth($url, $requestMethod)
                             ->performRequest();
         
-        
-        $params['text'] = json_decode($response);
+        $data = json_decode($response);
+        $params['text'] = $data[0]->text;
+        $params['time'] = date("H:i:s", strtotime($data[0]->created_at));
+            
+        //$params['text'] = json_decode($response);
         
         return $params;
     }

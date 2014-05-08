@@ -1,6 +1,6 @@
 { 
 	"model": "testMapModel", 
 	"type": "map", 
-	"width": 2, 
-	"height": 2
+	"width": 10, 
+	"height": 10
 }

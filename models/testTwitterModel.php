@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set('PST8PDT');
 /**
  * Twitter Account Info
  */
@@ -37,7 +37,6 @@ class testTwitterModel extends baseModel {
     function getData() {
         $params = array();
         $params['title'] = "City of Vancouver Twitter";
-        //$params['text'] = "testTwitterModel Text";
        
            
         $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
@@ -50,11 +49,16 @@ class testTwitterModel extends baseModel {
                             ->buildOauth($url, $requestMethod)
                             ->performRequest();
         
-        $data = json_decode($response);
-        $params['profile_img'] = $data[0]->user->profile_image_url;
-        $params['screen_name'] = $data[0]->user->screen_name;  
-        $params['text'] = "\"{$data[0]->text}\"";
-        $params['time'] = date("H:i:s", strtotime($data[0]->created_at));
+        $data = (array)json_decode($response);
+        $first= (array)$data[0];
+        $user = (array)$first['user'];
+        $params['profile_img'] = $user['profile_image_url'];
+        $params['screen_name'] = $user['screen_name'];
+        $params['text'] = $first['text'];
+        $params['time'] = date("H:i", strtotime($first['created_at']));
+        //$params['screen_name'] = $data[0]->user->screen_name;  
+        //$params['text'] = "\"{$data[0]->text}\"";
+        //$params['time'] = date("H:i:s", strtotime($data[0]->created_at));
         
         return $params;
     }

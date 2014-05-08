@@ -1,4 +1,5 @@
 { 
+        "time": 5,
 	"model": "testMapModel", 
 	"type": "map", 
 	"width": 6, 

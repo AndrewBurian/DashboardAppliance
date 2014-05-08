@@ -1,4 +1,5 @@
 { 
+	"time": 10,
 	"model": "testGraphModel", 
 	"type": "graph", 
 	"width": 10, 

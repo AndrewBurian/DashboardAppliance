@@ -8,7 +8,7 @@ class testTextModel extends baseModel {
 		
 		$params = array();
 		$params['title'] = "Jordan's Widget";
-		$params['text'] = "testTextModel Text";
+		$params['text'] = "testTextModel Text" . time();
 		$params['footer'] = "testTextModel Footer";
 		
 		return $params;

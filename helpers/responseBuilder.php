@@ -30,12 +30,14 @@ function sendDashboard($html){
  * 
  */
 function sendWidget($widgets){
-    $response = new SimpleXMLElement("<response></response>");
+	$content = "<response>";
+	foreach($widgets as $widget){
+		$content .= $widget;
+	}
+	$content.= "</response>";
+	
+    $response = new SimpleXMLElement($content);
     $response->addAttribute('type', 'widget');
-    foreach($widgets as $widget){
-        $child = $response->addChild('widget', $widget['html']);
-        $child->addAttribute('id', $widget['id']);
-    }
     echo $response->asXML();
 }
 

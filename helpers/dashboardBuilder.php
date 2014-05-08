@@ -21,6 +21,9 @@ require_once 'config/jsonConfig.php';
  * 
  */
 function buildDashboard(){
+	
+	$_SESSION['widgets'] = array();
+	
     //hold snippet of html
     $response = "";
     

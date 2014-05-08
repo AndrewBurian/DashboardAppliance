@@ -1,4 +1,5 @@
 { 
+	"time": 15,
 	"model": "testBuzzwordsModel", 
 	"type": "buzzwords", 
 	"width": 2, 

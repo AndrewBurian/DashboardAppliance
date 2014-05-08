@@ -1,5 +1,5 @@
 <widget width="{width}" height="{height}">
-	<li>
+	<li id="{id}">
 		{content}
 	</li>
 </widget>

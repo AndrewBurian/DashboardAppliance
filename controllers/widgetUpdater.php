@@ -14,10 +14,17 @@ include 'helpers/widgetBuilder.php';
  * @Programmer:
  * 
  */
-function update($id){
-    /* get the html fragment for the widget */
-    $widgetData = buildWidget($id);
-    
+function update(){
+	
+	$widgetData = array();
+	
+	foreach ($_SESSION['widgets'] as $id => $time) {
+		if ($time >= time()) {
+			$widget = buildWidget($id);
+			$widgetData[] = $widget['whtml'];
+		}
+	}
+	
     /* send the widget to the client */
     sendWidget($widgetData);
 }

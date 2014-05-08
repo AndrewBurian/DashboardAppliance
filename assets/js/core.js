@@ -2,7 +2,7 @@
  * The main js that runs the updating, xml parsing, etc
  */
 
-var updateInterval = 0.1;					//Update time in minutes
+var updateInterval = 5;					//Update time in seconds
 var piID = "1";							//The identifier of the raspberry pi
 var version = "0.1";					//The current version of the dashboard
 var gridster;
@@ -31,7 +31,7 @@ function initialize() {
 	getUpdate();
 	
 	//start the update timer.
-	setInterval(getUpdate, updateInterval * 60 * 1000);
+	setInterval(getUpdate, updateInterval * 1000);
 }
 
 /**
@@ -63,8 +63,6 @@ function getUpdate() {
 			var parser = new DOMParser();
 			var xml = parser.parseFromString(httpUpdate.responseText, "application/xml");
 			
-			console.log(xml);
-			
 			//get the response node and the type of update
 			var rootNode = xml.getElementsByTagName("response")[0];
 			var type = rootNode.getAttribute("type");
@@ -89,7 +87,7 @@ function getUpdate() {
 		
 	}
 	
-	httpUpdate.open("GET", "index.php?id=" + piID + "&version=" + version, true);
+	httpUpdate.open("GET", "update.php?id=" + piID + "&version=" + version, true);
 	httpUpdate.send();
 }
 
@@ -135,7 +133,17 @@ function updateDashboard(xml) {
  */
 function updateWidget(xml) {
 	
+	var widgets = xml.getElementsByTagName("widget");
 	
+	var updatedWidget;
+	
+	for(var i = 0; i < widgets.length; i++) {
+		
+		updatedWidget = widgets[i].getElementsByTagName("li")[0];
+		
+		document.getElementById(updatedWidget.id).innerHTML = updatedWidget.innerHTML;
+		
+	}
 	
 }
 

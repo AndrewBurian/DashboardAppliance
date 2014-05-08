@@ -1,4 +1,5 @@
-{ 
+{
+	"time": 5,
 	"model": "testCyclingTextModel", 
 	"type": "cyclingNumber", 
 	"width": 10, 

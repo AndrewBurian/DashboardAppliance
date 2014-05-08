@@ -21,6 +21,8 @@ require_once 'config/jsonConfig.php';
 function buildWidget($id) {
 	
     $widget = getWidget($id);
+    
+    $_SESSION['widgets'][$id] = time() + $widget['time'];
 	
     require_once "models/{$widget['model']}.php";
 
@@ -32,8 +34,10 @@ function buildWidget($id) {
     $content = array();
     $content['width'] = $widget['width'];
     $content['height'] = $widget['height'];
+    $content['id'] = $id;
     $content['content'] = parse($widgetData, $widget['type'] . 'Widget.php');
     $html = parse($content, 'baseWidget.php');
+    
     /* assign the widget id and the html fragment to an array */
     $widgetArray = array(
         'wid' => $id,

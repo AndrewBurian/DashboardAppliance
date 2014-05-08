@@ -1,4 +1,5 @@
 { 
+	"time": 10,
 	"model": "testTwitterModel", 
 	"type": "twitter", 
 	"width": 2, 

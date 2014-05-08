@@ -1,6 +1,6 @@
 { 
 	"model": "testGraphModel", 
 	"type": "graph", 
-	"width": 5, 
-	"height": 2
+	"width": 10, 
+	"height": 10
 }

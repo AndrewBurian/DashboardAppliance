@@ -36,9 +36,9 @@ class testTwitterModel extends baseModel {
     
     function getData() {
         $params = array();
-        $params['title'] = "testTwitterModel Title";
+        $params['title'] = "City of Vancouver Twitter";
         //$params['text'] = "testTwitterModel Text";
-        $params['footer'] = "testTwitterModel Footer";
+       
            
         $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
         $getfield = '?screen_name=CityofVancouver';
@@ -51,10 +51,10 @@ class testTwitterModel extends baseModel {
                             ->performRequest();
         
         $data = json_decode($response);
-        $params['text'] = $data[0]->text;
+        $params['profile_img'] = $data[0]->user->profile_image_url;
+        $params['screen_name'] = $data[0]->user->screen_name;  
+        $params['text'] = "\"{$data[0]->text}\"";
         $params['time'] = date("H:i:s", strtotime($data[0]->created_at));
-            
-        //$params['text'] = json_decode($response);
         
         return $params;
     }

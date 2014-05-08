@@ -7,9 +7,9 @@ class testTextModel extends baseModel {
 	function getData() {
 		
 		$params = array();
-		$params['title'] = "Jordan's Widget";
-		$params['text'] = "testTextModel Text" . time();
-		$params['footer'] = "testTextModel Footer";
+		$params['title'] = "Recollect Dashboard Appliance";
+		$params['text'] = "Current Time: " . date("H:i", time());
+		$params['footer'] = "City of Vancouver Waste Collection";
 		
 		return $params;
 		

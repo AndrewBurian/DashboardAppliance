@@ -3,7 +3,11 @@
     <h2 class="value" data-bind="current | prettyNumber | prepend prefix" style="text-align: center;">{value}</h2>
 
     <p class="more-info" data-bind="moreinfo"></p>
-    <svg width="610" height="360"><path d="M0,285.74257425742576Q58.74074074074073,292.6732673267326,67.77777777777777,278.3168316831683C81.33333333333333,256.78217821782175,121.99999999999999,91.18811881188117,135.55555555555554,70.39603960396039S189.77777777777777,49.603960396039604,203.33333333333331,70.39603960396039S257.55555555555554,279.80198019801975,271.1111111111111,278.3168316831683S325.33333333333337,83.01980198019803,338.8888888888889,55.544554455445564S393.1111111111111,-21.683168316831676,406.66666666666663,3.5643564356435604S460.88888888888886,289.45544554455444,474.4444444444444,308.019801980198S528.6666666666666,204.05940594059408,542.2222222222222,189.20792079207922Q551.2592592592592,179.30693069306932,610,159.50495049504948L610,360Q551.2592592592592,360,542.2222222222222,360C528.6666666666666,360,487.99999999999994,360,474.4444444444444,360S420.2222222222222,360,406.66666666666663,360S352.44444444444446,360,338.8888888888889,360S284.66666666666663,360,271.1111111111111,360S216.88888888888886,360,203.33333333333331,360S149.1111111111111,360,135.55555555555554,360S81.33333333333333,360,67.77777777777777,360Q58.74074074074073,360,0,360Z" fill="#fff" stroke="none" stroke-width="2" class="undefined"></path><g class="y_ticks plain"><g transform="translate(0,360)" style="opacity: 1;"><line class="tick" x2="4" y2="0"></line><text x="7" y="0" dy=".32em" text-anchor="start"></text></g>
+    <svg width="610" height="360">
+    
+    {data}
+    
+    <g class="y_ticks plain"><g transform="translate(0,360)" style="opacity: 1;"><line class="tick" x2="4" y2="0"></line><text x="7" y="0" dy=".32em" text-anchor="start"></text></g>
 
     <g transform="translate(0,285.74257425742576)" style="opacity: 1;"><line class="tick" x2="4" y2="0"></line><text x="7" y="0" dy=".32em" text-anchor="start">{y0}</text></g>
     <g transform="translate(0,211.4851485148515)" style="opacity: 1;"><line class="tick" x2="4" y2="0"></line><text x="7" y="0" dy=".32em" text-anchor="start">{y1}</text></g>
@@ -30,10 +34,3 @@
     <div class="x_tick plain" style="left: 542.2222222222222px;"><div class="title">{x8}</div></div>
 
 </div>
-
-    
-<!--<h1 class="title" data-bind="title">{title}</h1>
-
-<h2 class="value" data-bind="current | prettyNumber | prepend prefix">{value}</h2>
-
-<p class="more-info" data-bind="moreinfo"></p>-->

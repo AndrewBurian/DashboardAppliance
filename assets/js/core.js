@@ -59,7 +59,7 @@ function getUpdate() {
 				console.log("No data to load.");
 				return;
 			}
-			//console.log(httpUpdate.responseText);
+
 			var parser = new DOMParser();
 			var xml = parser.parseFromString(httpUpdate.responseText, "application/xml");
 			

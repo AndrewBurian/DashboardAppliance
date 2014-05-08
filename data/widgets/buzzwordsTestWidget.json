@@ -1,6 +1,6 @@
 { 
 	"model": "testBuzzwordsModel", 
-	"type": "text", 
+	"type": "buzzwords", 
 	"width": 2, 
 	"height": 2
 }

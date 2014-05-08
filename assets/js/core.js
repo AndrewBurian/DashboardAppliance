@@ -116,7 +116,7 @@ function updateDashboard(xml) {
 		
 		width = parseInt(widgets[i].getAttribute("width"));
 		height = parseInt(widgets[i].getAttribute("height"));
-		
+	
 		gridster.add_widget(widgets[i].innerHTML, width, height);
 	}
 	

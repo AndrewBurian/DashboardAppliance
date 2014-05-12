@@ -9,7 +9,7 @@ class testGraphModel extends baseModel {
         $curval = rand(0, 360);
         
         $params = array();
-        $params['title'] = "testTextModel Title";
+        $params['title'] = "Tons Collected in 2013";
         $params['value'] = (int)((($curval/360) * 50) * (-1) + 50);
 
         $params['x0'] = "jan";

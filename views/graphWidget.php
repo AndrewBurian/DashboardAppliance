@@ -3,7 +3,7 @@
     <h2 class="value" data-bind="current | prettyNumber | prepend prefix" style="text-align: center;">{value}</h2>
 
     <p class="more-info" data-bind="moreinfo"></p>
-    <svg width="610" height="360">
+    <svg width="610">
     
     {data}
     

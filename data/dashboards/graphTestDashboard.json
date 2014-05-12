@@ -2,7 +2,9 @@
 	"time": 1,
 	"widgets": [
 	
-		"numberTestWidget"
+		"numberTestWidget",
+                "buzzwordsTestWidget",
+                "cyclingNumberTestWidget"
 		
 	]
 }

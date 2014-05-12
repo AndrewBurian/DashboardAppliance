@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('PST8PDT');
 
 require_once 'baseModel.php';
 
@@ -7,9 +8,10 @@ class testCyclingTextModel extends baseModel {
 	function getData() {
 		
 		$params = array();
-		$params['title1'] = "Jordan's Widget1";
-		$params['text1'] = "testTextModel Text1";
-		$params['footer1'] = "testTextModel Footer1";
+                $params['title1'] = "Recollect Dashboard Appliance";
+		$params['text1'] = "Current Time: " . date("H:i", time());
+		$params['footer1'] = "City of Vancouver Waste Collection";
+		
 		
 		$params['title2'] = "Jordan's Widget2";
 		$params['text2'] = "testTextModel Text2";

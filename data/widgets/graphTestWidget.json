@@ -2,6 +2,6 @@
 	"time": 10,
 	"model": "testGraphModel", 
 	"type": "graph", 
-	"width": 10, 
-	"height": 10
+	"width": 3, 
+	"height": 2
 }

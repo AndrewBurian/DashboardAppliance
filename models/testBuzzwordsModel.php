@@ -9,13 +9,16 @@ class testBuzzwordsModel extends baseModel {
 		$params = array();
 		$params['title'] = "Buzzwords";
                 
-                $params['olable'] = "item #1";
+                $params['olabel'] = "Garbage: ";
                 $params['olvalue'] = "9000 times";
                 
-                $params['ulable'] = "more stuff";
-                $params['ulvalue'] = "0101000100";
+                $params['olabel2'] = "Trash: ";
+                $params['olvalue2'] = "1 times";
                 
-		$params['footer'] = "footer here";
+                //$params['ulable'] = "more stuff";
+                //$params['ulvalue'] = "0101000100";
+                
+		$params['footer'] = "Words Spoken";
 		
 		return $params;
 		

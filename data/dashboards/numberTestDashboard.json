@@ -4,7 +4,8 @@
 		
 		"cyclingNumberTestWidget",
 		"numberTestWidget",
-		"numberTestWidget"
+                "twitterTestWidget",
+                "graphTestWidget"
 		
 	]
 }

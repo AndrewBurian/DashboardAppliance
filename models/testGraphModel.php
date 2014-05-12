@@ -12,15 +12,13 @@ class testGraphModel extends baseModel {
         $params['title'] = "Tons Collected in 2013";
         $params['value'] = (int)((($curval/360) * 50) * (-1) + 50);
 
-        $params['x0'] = "jan";
-        $params['x1'] = "feb";
-        $params['x2'] = "mar";
-        $params['x3'] = "apr";
-        $params['x4'] = "may";
-        $params['x5'] = "jun";
-        $params['x6'] = "jul";
-        $params['x7'] = "aug";
-        $params['x8'] = "sept";
+        $params['x0'] = "mon";
+        $params['x1'] = "tue";
+        $params['x2'] = "wed";
+        $params['x3'] = "thu";
+        $params['x4'] = "fri";
+        $params['x5'] = "sat";
+        $params['x6'] = "sun";
 
         $params['y0'] = "10";
         $params['y1'] = "20";
@@ -46,11 +44,14 @@ class testGraphModel extends baseModel {
 
         if (count($points) > 4) {
             for ($i = 0; $i < (count($points) - 3); $i += 2) {
-                $params['data'] .= "<line x1=\""
-                        . $points[$i] . "\" y1=\""
-                        . $points[$i + 1] . "\" x2=\""
-                        . $points[$i + 2] . "\" y2=\""
-                        . $points[$i + 3] . "\" stroke=\"#fff\" stroke-width=\"2\" />";
+                $lineparams = array();
+                
+                $lineparams['Px0'] = $points[$i];
+                $lineparams['Py0'] = $points[$i + 1];
+                $lineparams['Px1'] = $points[$i + 2];
+                $lineparams['Py1'] = $points[$i + 3];
+                
+                $params['data'] .= parse($lineparams, "graphLine.php");
             }
         }
 

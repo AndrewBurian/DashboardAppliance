@@ -24,13 +24,11 @@
     <path class="domain" d="M610,0H0V360H610"></path></g></svg>
 
     <div class="x_tick plain" style="left: 5px;"><div class="title">{x0}</div></div>
-    <div class="x_tick plain" style="left: 67.77777777777777px;"><div class="title">{x1}</div></div>
-    <div class="x_tick plain" style="left: 135.55555555555554px;"><div class="title">{x2}</div></div>
-    <div class="x_tick plain" style="left: 203.33333333333331px;"><div class="title">{x3}</div></div>
-    <div class="x_tick plain" style="left: 271.1111111111111px;"><div class="title">{x4}</div></div>
-    <div class="x_tick plain" style="left: 338.8888888888889px;"><div class="title">{x5}</div></div>
-    <div class="x_tick plain" style="left: 406.66666666666663px;"><div class="title">{x6}</div></div>
-    <div class="x_tick plain" style="left: 474.4444444444444px;"><div class="title">{x7}</div></div>
-    <div class="x_tick plain" style="left: 542.2222222222222px;"><div class="title">{x8}</div></div>
+    <div class="x_tick plain" style="left: 92.142px;"><div class="title">{x1}</div></div>
+    <div class="x_tick plain" style="left: 179.284px;"><div class="title">{x2}</div></div>
+    <div class="x_tick plain" style="left: 266.426px;"><div class="title">{x3}</div></div>
+    <div class="x_tick plain" style="left: 353.568px;"><div class="title">{x4}</div></div>
+    <div class="x_tick plain" style="left: 440.71px;"><div class="title">{x5}</div></div>
+    <div class="x_tick plain" style="left: 527.852px;"><div class="title">{x6}</div></div>
 
 </div>

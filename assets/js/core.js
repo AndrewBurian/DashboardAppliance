@@ -2,10 +2,9 @@
  * The main js that runs the updating, xml parsing, etc
  */
 
-var updateInterval = 5;					//Update time in seconds
+var updateInterval = 50;					//Update time in seconds
 var piID = "1";							//The identifier of the raspberry pi
 var version = "0.1";					//The current version of the dashboard
-var gridster;
 
 /**
  * Initializes the javascript.
@@ -20,12 +19,6 @@ var gridster;
  * 
  */
 function initialize() {
-	
-	//initialize gridster
-	gridster = $(".gridster ul").gridster({
-		widget_margins: [10, 10],
-		widget_base_dimensions: [140, 140]
-	}).data('gridster');
 	
 	//get the first update.
 	getUpdate();
@@ -106,16 +99,10 @@ function updateDashboard(xml) {
 	
 	var widgets = xml.getElementsByTagName("widget");
 	
-	var width, height;
-	
-	gridster.remove_all_widgets();
+	document.getElementById("dashboard").innerHTML = "";
 	
 	for(var i = 0; i < widgets.length; i++) {
-		
-		width = parseInt(widgets[i].getAttribute("width"));
-		height = parseInt(widgets[i].getAttribute("height"));
-	
-		gridster.add_widget(widgets[i].innerHTML, width, height);
+		document.getElementById("dashboard").innerHTML += widgets[i].innerHTML;
 	}
 	
 }
@@ -135,13 +122,13 @@ function updateWidget(xml) {
 	
 	var widgets = xml.getElementsByTagName("widget");
 	
-	var updatedWidget;
+	var widgetContent;
 	
 	for(var i = 0; i < widgets.length; i++) {
 		
-		updatedWidget = widgets[i].getElementsByTagName("li")[0];
+		widgetContent = widgets[i].getElementsByTagName("div")[0];
 		
-		document.getElementById(updatedWidget.id).innerHTML = updatedWidget.innerHTML;
+		document.getElementById(widgetContent.id).innerHTML = widgetContent.innerHTML;
 		
 	}
 	

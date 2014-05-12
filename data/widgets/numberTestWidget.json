@@ -2,6 +2,6 @@
 	"time": 30,
 	"model": "testTextModel", 
 	"type": "number", 
-	"width": 2, 
-	"height": 2
+	"width": 1, 
+	"height": 1
 }

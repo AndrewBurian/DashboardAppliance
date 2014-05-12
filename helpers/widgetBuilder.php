@@ -32,8 +32,8 @@ function buildWidget($id) {
     
     /* parse the data and get the html fragment for the widget */
     $content = array();
-    $content['width'] = $widget['width'];
-    $content['height'] = $widget['height'];
+    $content['width'] = $widget['width'] * 306 + ($widget['width'] - 1) * 10;
+    $content['height'] = $widget['height'] * 306 + ($widget['height'] - 1) * 10;
     $content['id'] = $id;
     $content['content'] = parse($widgetData, $widget['type'] . 'Widget.php');
     $html = parse($content, 'baseWidget.php');

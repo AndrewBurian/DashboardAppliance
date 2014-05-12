@@ -24,11 +24,11 @@ function buildDashboard(){
 	
 	$_SESSION['widgets'] = array();
 	
-    //hold snippet of html
-    $response = "";
-    
     //Get the total number of Widgets
     $dashboardList = getDashboardList($_SESSION['clientID']);
+    
+    //hold snippet of html
+    $response = "<widget><h1><span>{$dashboardList[$_SESSION['currentDashboard']]}</span></h1></widget>";
     
     //get the list of widgets on the current dashboard
     $widgets = getWidgets($dashboardList[$_SESSION['currentDashboard']]);

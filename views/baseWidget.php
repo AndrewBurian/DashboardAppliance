@@ -1,6 +1,6 @@
 <widget width="{width}" height="{height}">
-	<li id="{id}">
+	<div id="{id}" class="widget" style="width:{width}px;height:{height}px;">
 		{content}
-	</li>
+	</div>
 </widget>
 

@@ -6,6 +6,10 @@
  * and open the template in the editor.
  */
 
-require_once "helpers/dashboardBuilder.php";
+//require_once "helpers/dashboardBuilder.php";
 
-buildDashboard();
+//buildDashboard();
+
+require_once "helpers/recollectAPI.php";
+
+echo getRecollectMessage("olathe");

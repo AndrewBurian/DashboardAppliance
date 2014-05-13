@@ -11,6 +11,8 @@ class testTextModel extends baseModel {
 		$params['text'] = rand(0,100);
 		$params['footer'] = "Last updated on " . date("D M j");
 		
+		$params['backgroundColor'] = "#aaa";
+		
 		return $params;
 		
 	}

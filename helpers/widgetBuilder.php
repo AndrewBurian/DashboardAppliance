@@ -31,12 +31,11 @@ function buildWidget($id) {
     $widgetData = $widgetModel->getData();
     
     /* parse the data and get the html fragment for the widget */
-    $content = array();
-    $content['width'] = $widget['width'] * 306 + ($widget['width'] - 1) * 10;
-    $content['height'] = $widget['height'] * 306 + ($widget['height'] - 1) * 10;
-    $content['id'] = $id;
-    $content['content'] = parse($widgetData, $widget['type'] . 'Widget.php');
-    $html = parse($content, 'baseWidget.php');
+    $widgetData['width'] = $widget['width'] * 306 + ($widget['width'] - 1) * 10;
+    $widgetData['height'] = $widget['height'] * 306 + ($widget['height'] - 1) * 10;
+    $widgetData['id'] = $id;
+    $widgetData['content'] = parse($widgetData, $widget['type'] . 'Widget.php');
+    $html = parse($widgetData, 'baseWidget.php');
     
     /* assign the widget id and the html fragment to an array */
     $widgetArray = array(

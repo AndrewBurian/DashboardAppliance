@@ -1,0 +1,7 @@
+{ 
+	"time": 30,
+	"model": "recollectCampaignModel", 
+	"type": "number", 
+	"width": 4, 
+	"height": 1
+}

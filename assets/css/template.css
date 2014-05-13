@@ -36,6 +36,9 @@ h1 span {
 	padding: 0px;
 	float: left;
 	overflow: hidden;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .widget * {
@@ -84,4 +87,17 @@ h1 span {
 }
 .widget-graph .domain {
   display: none;
+}
+
+.widget .campaign-title {
+	font-size: 40px;
+}
+
+.widget .campaign-body {
+	text-align: justify;
+	padding: 10px;
+}
+
+.widget .campaign-message {
+	vertical-align: center;
 }

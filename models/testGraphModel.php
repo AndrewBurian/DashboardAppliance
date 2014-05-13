@@ -6,12 +6,13 @@ class testGraphModel extends baseModel {
 
     function getData() {
 
-        $curval = rand(0, 360);
+        $curval = rand(0, 620);
         $nlines = 4;
+        $datapoints = 16;
         
         $params = array();
         $params['title'] = "Tons Collected in 2013";
-        $params['value'] = (int)((($curval/360) * 50) * (-1) + 50);
+        $params['value'] = (int)((($curval/620) * 50) * (-1) + 50);
 
         $params['x0'] = "mon";
         $params['x1'] = "tue";
@@ -28,31 +29,22 @@ class testGraphModel extends baseModel {
 
         $params['data'] = "";
 
-        for($j = 0; $j < $nlines; ++$j){
+        for($i = 0; $i < $nlines; ++$i){
             $lineparams = array();
             $lineparams['colour'] = '#' . strtoupper(dechex(rand(0,10000000)));;
 
-            $points = array(0, rand(0, 360),
-                            50, rand(0, 360),
-                            100, rand(0, 360),
-                            150, rand(0, 360),
-                            200, rand(0, 360),
-                            250, rand(0, 360),
-                            300, rand(0, 360),
-                            350, rand(0, 360),
-                            400, rand(0, 360),
-                            450, rand(0, 360),
-                            500, rand(0, 360),
-                            550, rand(0, 360),
-                            600, rand(0, 360)
-                            );
+            $points = array();
+            for($j = 0; $j < $datapoints + 1; ++$j){
+                $points[] = $j * (100/$datapoints) . "%";
+                $points[] = rand(0, 620);
+            }
 
             if (count($points) > 4) {
-                for ($i = 0; $i < (count($points) - 3); $i += 2) {
-                    $lineparams['Px0'] = $points[$i];
-                    $lineparams['Py0'] = $points[$i + 1];
-                    $lineparams['Px1'] = $points[$i + 2];
-                    $lineparams['Py1'] = $points[$i + 3];
+                for ($k = 0; $k < (count($points) - 3); $k += 2) {
+                    $lineparams['Px0'] = $points[$k];
+                    $lineparams['Py0'] = $points[$k + 1];
+                    $lineparams['Px1'] = $points[$k + 2];
+                    $lineparams['Py1'] = $points[$k + 3];
 
                     $params['data'] .= parse($lineparams, "graphLine.php");
                 }

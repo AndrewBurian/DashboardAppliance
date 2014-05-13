@@ -7,6 +7,7 @@ class testGraphModel extends baseModel {
     function getData() {
 
         $curval = rand(0, 360);
+        $nlines = 4;
         
         $params = array();
         $params['title'] = "Tons Collected in 2013";
@@ -27,36 +28,37 @@ class testGraphModel extends baseModel {
 
         $params['data'] = "";
 
-        $points = array(0, rand(0, 360),
-                        50, rand(0, 360),
-                        100, rand(0, 360),
-                        150, rand(0, 360),
-                        200, rand(0, 360),
-                        250, rand(0, 360),
-                        300, rand(0, 360),
-                        350, rand(0, 360),
-                        400, rand(0, 360),
-                        450, rand(0, 360), 
-                        500, rand(0, 360),
-                        550, rand(0, 360),
-                        600, $curval
-                        );
+        for($j = 0; $j < $nlines; ++$j){
+            $lineparams = array();
+            $lineparams['colour'] = '#' . strtoupper(dechex(rand(0,10000000)));;
 
-        if (count($points) > 4) {
-            for ($i = 0; $i < (count($points) - 3); $i += 2) {
-                $lineparams = array();
-                
-                $lineparams['Px0'] = $points[$i];
-                $lineparams['Py0'] = $points[$i + 1];
-                $lineparams['Px1'] = $points[$i + 2];
-                $lineparams['Py1'] = $points[$i + 3];
-                
-                $params['data'] .= parse($lineparams, "graphLine.php");
+            $points = array(0, rand(0, 360),
+                            50, rand(0, 360),
+                            100, rand(0, 360),
+                            150, rand(0, 360),
+                            200, rand(0, 360),
+                            250, rand(0, 360),
+                            300, rand(0, 360),
+                            350, rand(0, 360),
+                            400, rand(0, 360),
+                            450, rand(0, 360),
+                            500, rand(0, 360),
+                            550, rand(0, 360),
+                            600, rand(0, 360)
+                            );
+
+            if (count($points) > 4) {
+                for ($i = 0; $i < (count($points) - 3); $i += 2) {
+                    $lineparams['Px0'] = $points[$i];
+                    $lineparams['Py0'] = $points[$i + 1];
+                    $lineparams['Px1'] = $points[$i + 2];
+                    $lineparams['Py1'] = $points[$i + 3];
+
+                    $params['data'] .= parse($lineparams, "graphLine.php");
+                }
             }
         }
 
-
         return $params;
     }
-
 }

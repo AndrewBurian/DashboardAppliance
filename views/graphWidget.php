@@ -1,4 +1,4 @@
-<div data-id="convergence" data-title="Convergence" style="background-color:#ff9618; height:360px; width: 610px;" class="widget widget-graph convergence rickshaw_graph"><h1 class="title" data-bind="title" style="text-align: center;">{title}</h1>
+<div data-id="convergence" data-title="Convergence" style="background-color:#f1e2ff; height:360px; width: 610px;" class="widget widget-graph convergence rickshaw_graph"><h1 class="title" data-bind="title" style="text-align: center;">{title}</h1>
 
     <h2 class="value" data-bind="current | prettyNumber | prepend prefix" style="text-align: center;">{value}</h2>
 

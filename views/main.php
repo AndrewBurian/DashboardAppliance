@@ -3,6 +3,7 @@
 	<head>
 		<title>Dashboard Appliance</title>
 		<link rel="stylesheet" type="text/css" href="assets/css/template.css">
+                <link rel="stylesheet" type="text/css" href="assets/css/widget.css">
 	</head>
 	<body>
 		

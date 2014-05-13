@@ -8,19 +8,20 @@ class testGraphModel extends baseModel {
 
         $curval = rand(0, 620);
         $nlines = 4;
-        $datapoints = 16;
-        
+        $datapoints = 11;
+
+        $xVal = array("mon", "tue", "wed", "thu", "fri", "sat", "sun");
+
         $params = array();
         $params['title'] = "Tons Collected in 2013";
         $params['value'] = (int)((($curval/620) * 50) * (-1) + 50);
 
-        $params['x0'] = "mon";
-        $params['x1'] = "tue";
-        $params['x2'] = "wed";
-        $params['x3'] = "thu";
-        $params['x4'] = "fri";
-        $params['x5'] = "sat";
-        $params['x6'] = "sun";
+        $params['xAxis'] = "";
+        for($a = 0; $a < $datapoints; ++$a){
+            $textparams['xP'] = $xVal[$a % 7];
+            $textparams['xV'] = ($a * 87.142) + 5;
+            $params['xAxis'] .= parse($textparams, "graphText.php");
+        }
 
         $params['y0'] = "10";
         $params['y1'] = "20";
@@ -31,7 +32,7 @@ class testGraphModel extends baseModel {
 
         for($i = 0; $i < $nlines; ++$i){
             $lineparams = array();
-            $lineparams['colour'] = '#' . strtoupper(dechex(rand(0,10000000)));;
+            $lineparams['colour'] = '#' . dechex(rand(0,16777215));
 
             $points = array();
             for($j = 0; $j < $datapoints + 1; ++$j){

@@ -18,12 +18,7 @@
 
     <path class="domain" d="M610,0H0V360H610"></path></g></svg>
 
-    <div class="x_tick plain" style="left: 5px;"><div class="title">{x0}</div></div>
-    <div class="x_tick plain" style="left: 92.142px;"><div class="title">{x1}</div></div>
-    <div class="x_tick plain" style="left: 179.284px;"><div class="title">{x2}</div></div>
-    <div class="x_tick plain" style="left: 266.426px;"><div class="title">{x3}</div></div>
-    <div class="x_tick plain" style="left: 353.568px;"><div class="title">{x4}</div></div>
-    <div class="x_tick plain" style="left: 440.71px;"><div class="title">{x5}</div></div>
-    <div class="x_tick plain" style="left: 527.852px;"><div class="title">{x6}</div></div>
+    {xAxis}
+
 
 </div>

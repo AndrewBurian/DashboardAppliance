@@ -36,7 +36,7 @@ class testTwitterModel extends baseModel {
     
     function getData() {
         $params = array();
-        $params['title'] = "City of Vancouver Twitter";
+        $params['title'] = "City of Vancouver Twitter Feed";
        
            
         $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';

@@ -3,9 +3,9 @@
 	"widgets": [
 		
 		"cyclingNumberTestWidget",
-		"numberTestWidget",
+		"numberWidget",
 		"recollectCampaignWidget",
-		"numberTestWidget",
+		"numberWidget",
 		"graphTestWidget",
                 "twitterWidget"
 		

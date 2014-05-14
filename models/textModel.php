@@ -2,7 +2,7 @@
 
 require_once 'baseModel.php';
 
-class testTextModel extends baseModel {
+class textModel extends baseModel {
 	
 	function getData() {
 		

@@ -2,8 +2,8 @@
 	"time": 1,
 	"widgets": [
 	
-		"numberTestWidget",
-                "buzzwordsTestWidget",
+		"numberWidget",
+                "buzzwordsWidget",
                 "graphTestWidget",
                 "cyclingNumberTestWidget"
 		

@@ -1,6 +1,6 @@
 { 
 	"time": 15,
-	"model": "testBuzzwordsModel", 
+	"model": "buzzwordsModel", 
 	"type": "buzzwords", 
 	"width": 2, 
 	"height": 2

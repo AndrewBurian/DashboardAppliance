@@ -2,7 +2,7 @@
 
 require_once 'baseModel.php';
 
-class testBuzzwordsModel extends baseModel {
+class buzzwordsModel extends baseModel {
 	
 	function getData() {
 		

@@ -3,7 +3,7 @@
     <h2 class="value" style="text-align: center;">{value}</h2>
 
     <p class="more-info">{moreinfo}</p>
-    <svg style="width: 100%;">
+    <svg style="width: 100%; height: 100%;">
     
     {data}
     

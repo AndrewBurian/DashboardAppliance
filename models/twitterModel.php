@@ -20,7 +20,7 @@ require_once 'helpers/twitterAPIExchange.php';
 
 
 
-class testTwitterModel extends baseModel {
+class twitterModel extends baseModel {
     
     /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
     var $settings = array();
@@ -59,6 +59,10 @@ class testTwitterModel extends baseModel {
         //$params['screen_name'] = $data[0]->user->screen_name;  
         //$params['text'] = "\"{$data[0]->text}\"";
         //$params['time'] = date("H:i:s", strtotime($data[0]->created_at));
+        
+        
+        $params['backgroundImage'] = "bgTwitter.png";
+        $params['backgroundColor'] = "#1AB2E8";
         
         return $params;
     }

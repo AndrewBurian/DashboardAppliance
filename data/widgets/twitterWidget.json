@@ -1,6 +1,6 @@
 { 
 	"time": 10,
-	"model": "testTwitterModel", 
+	"model": "twitterModel", 
 	"type": "twitter", 
 	"width": 2, 
 	"height": 1

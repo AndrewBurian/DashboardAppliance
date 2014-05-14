@@ -9,10 +9,10 @@ class recollectCampaignModel extends baseModel {
 		
 		$params = array();
 		$params['title'] = "";
-		$params['text'] = getRecollectMessage("olathe");
+		$params['text'] = getRecollectMessage("Vancouver");
 		$params['footer'] = "";
 		
-		$params['backgroundImage'] = "background.png";
+		$params['backgroundImage'] = "bgRecollect.png";
 		$params['backgroundColor'] = "#54a341";
 		
 		return $params;

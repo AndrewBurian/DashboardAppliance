@@ -6,7 +6,8 @@
 		"numberTestWidget",
 		"recollectCampaignWidget",
 		"numberTestWidget",
-		"graphTestWidget"
+		"graphTestWidget",
+                "twitterWidget"
 		
 	]
 }

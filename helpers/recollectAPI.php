@@ -44,6 +44,7 @@ function getRecollectCount($location, $category, $timePeriod = null) {
         $contents = file_get_contents("https://recollect.net/api/dashboard/{$location}/services/waste/count/{$category}/$timePeriod");
         $data = json_decode($contents, TRUE);
     }
+
     return $data;
 }
 
@@ -79,4 +80,26 @@ function getRecollectSearches($location, $timePeriod = null) {
         $data = json_decode($contents, TRUE);
     }
     return $data;
+}
+
+/*
+ * Example:
+ * getSearchesGraphData("olathe", "searches", "5");
+ * will return array(5) { [0]=> int(217) [1]=> int(259) [2]=> int(235) [3]=> int(139) [4]=> int(119) }s
+ */
+
+function getSearchesGraphData($location, $category, $numberOfDays) {
+
+    $dayContents = array();
+    for ($i = 0; $i < $numberOfDays; $i++) {
+        $temp = getRecollectCount($location, $category, ($i + 1) . "day");
+        $dayContents[] = $temp['last'];
+    }
+
+    $dayData[0] = $dayContents[0];
+    for ($i = 0; $i < $numberOfDays - 1; $i++) {
+        $dayData[] = $dayContents[$i + 1] - $dayContents[$i];
+    }
+
+    return $dayData;
 }

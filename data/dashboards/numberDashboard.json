@@ -2,9 +2,9 @@
 	"time": 1,
 	"widgets": [
 		
-		"numberWidget",
+		"searchWeeklyWidget",
 		"recollectCampaignWidget",
-		"numberWidget",
+		"notificationsWeeklyWidget",
 		"graphWidget"
 		
 	]

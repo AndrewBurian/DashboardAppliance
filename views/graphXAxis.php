@@ -1,1 +1,1 @@
-<div class="x_tick plain" style="left: {xV}px;"><div class="title" style="color: #ffffff">{xP}</div></div>
+<div class="x_tick plain" style="left: {xV};"><div class="title" style="color: #000">{xP}</div></div>

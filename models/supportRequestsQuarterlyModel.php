@@ -16,7 +16,7 @@ class supportRequestsQuarterlyModel extends baseModel {
 		$params['text'] = $last;
                 $params['footer'] = "Last updated on " . date("D M j");
 
-                $params['backgroundColor'] = "#aaa";
+                $params['backgroundColor'] = "#FF9618";
                 if ($last >= $prior){
                     $params['backgroundImage'] = 'up.png';
                 }else{

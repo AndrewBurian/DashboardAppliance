@@ -16,7 +16,7 @@ class remindersWeeklyModel extends baseModel {
 		$params['text'] = $last;
                 $params['footer'] = "Last updated on " . date("D M j");
 
-                $params['backgroundColor'] = "#aaa";
+                $params['backgroundColor'] = "#EC663C";
                 if ($last >= $prior){
                     $params['backgroundImage'] = 'up.png';
                 }else{

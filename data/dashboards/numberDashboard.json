@@ -2,7 +2,6 @@
 	"time": 1,
 	"widgets": [
 		
-		"cyclingNumberTestWidget",
 		"numberWidget",
 		"recollectCampaignWidget",
 		"numberWidget",

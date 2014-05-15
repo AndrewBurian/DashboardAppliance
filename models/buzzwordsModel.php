@@ -17,6 +17,8 @@ class buzzwordsModel extends baseModel {
                 
                 //$params['ulable'] = "more stuff";
                 //$params['ulvalue'] = "0101000100";
+                $params['backgroundColor'] = "#e064fc";
+                
                 
 		$params['footer'] = "Words Spoken";
 		

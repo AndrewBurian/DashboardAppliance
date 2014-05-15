@@ -2,7 +2,7 @@
 
 require_once 'baseModel.php';
 
-class testMapModel extends baseModel {
+class mapModel extends baseModel {
 	
 	function getData() {
 		

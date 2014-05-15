@@ -4,8 +4,7 @@
 	
 		"numberWidget",
                 "buzzwordsWidget",
-                "graphTestWidget",
-                "cyclingNumberTestWidget"
+                "graphTestWidget"
 		
 	]
 }

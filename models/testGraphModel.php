@@ -6,9 +6,11 @@ class testGraphModel extends baseModel {
 
     function getData() {
 
-        $curval = rand(0, 620);
-        $nlines = 4; // number of lines displayed on the graph
+        $nlines = 1; // number of lines displayed on the graph
         $datapoints = 11;
+
+        $gdata = getSearchesGraphData('olathe', 'searches', $datapoints + 1);
+        $maxVal = ceil(max($gdata)/10) * 10;
 
         /* x values to loop through */
         $xVal = array("mon", "tue", "wed", "thu", "fri", "sat", "sun");
@@ -16,7 +18,7 @@ class testGraphModel extends baseModel {
         $params = array();
         $params['title'] = "Tons Collected in 2013";
         $params['moreinfo'] = "";
-        $params['value'] = (int)((($curval/620) * 50) * (-1) + 50); // current value displayed
+        $params['value'] = end($gdata); // current value displayed
 
         /* create values and position for the x-axis */
         $params['xAxis'] = "";
@@ -29,7 +31,7 @@ class testGraphModel extends baseModel {
         /* create values and position for the y-axis */
         $params['yAxis'] = "";
         for($a = 0; $a < 8; ++$a){
-            $textparams['yP'] = 80 - ($a * 10);
+            $textparams['yP'] = $maxVal - ($a * ($maxVal/10));
             $textparams['yV'] = ($a * 74.258) + 25;
             $params['yAxis'] .= parse($textparams, "graphYAxis.php");
         }
@@ -42,7 +44,7 @@ class testGraphModel extends baseModel {
             $points = array();
             for($j = 0; $j < $datapoints + 1; ++$j){
                 $points[] = $j * (100/$datapoints) . "%"; // x coordinate
-                $points[] = rand(0, 620); // JSON DATA HERE (y coordinate)
+                $points[] = 100 - (100 * ($gdata[$j]/$maxVal)) . "%"; // JSON DATA HERE (y coordinate)
             }
 
             if (count($points) > 4) { // make sure there are x and y coordinates of at least two points

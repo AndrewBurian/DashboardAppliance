@@ -8,7 +8,7 @@ class graphModel extends baseModel {
 
         $nlines = 2; // number of lines displayed on the graph
         $datapoints = 10;
-        $holiday = array(3);
+        $holiday = array(3, 6, 8);
 
         //$gdata[] = getSearchesGraphData('vancouver', 'searches', $datapoints + 1);
         $gdata[] = array(236, 336, 259, 235, 139, 119, 225, 467, 392, 299, 261);

@@ -53,6 +53,8 @@ function getUpdate() {
 				return;
 			}
 
+            console.log(httpUpdate.responseText);
+
 			var parser = new DOMParser();
 			var xml = parser.parseFromString(httpUpdate.responseText, "application/xml");
 			
@@ -102,7 +104,18 @@ function updateDashboard(xml) {
 	document.getElementById("dashboard").innerHTML = "";
 	
 	for(var i = 0; i < widgets.length; i++) {
+
+
 		document.getElementById("dashboard").innerHTML += widgets[i].innerHTML;
+
+
+        var js = widgets[i].getAttribute("script");
+        if (js != null) {
+            var script = document.createElement("script");
+            script.src = js;
+            script.type = "text/javascript";
+            document.body.appendChild(script);
+        }
 	}
 	
 }

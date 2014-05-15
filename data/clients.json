@@ -2,7 +2,8 @@
 	"clients": [
 	
 		{ "id": 1, "dashboards": [ "numberDashboard", "graphDashboard" ] },
-		{ "id": 2, "dashboards": [ "numberDashboard" ] }
+		{ "id": 2, "dashboards": [ "numberDashboard" ] },
+                { "id": 3, "dashboards": ["olatheDashboard1", "olatheDashboard2"]}
 		
 	]
 }

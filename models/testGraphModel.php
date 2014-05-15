@@ -9,7 +9,7 @@ class testGraphModel extends baseModel {
         $nlines = 1; // number of lines displayed on the graph
         $datapoints = 11;
 
-        $gdata = getSearchesGraphData('olathe', 'searches', $datapoints + 1);
+        //$gdata = getSearchesGraphData('olathe', 'searches', $datapoints + 1);
         $maxVal = ceil(max($gdata)/10) * 10;
 
         /* x values to loop through */

@@ -1,0 +1,9 @@
+{
+	"time": 1,
+	"widgets": [
+		"numberWidget",
+		"recollectCampaignWidget",
+		"numberWidget",
+		"graphTestWidget"
+	]
+}

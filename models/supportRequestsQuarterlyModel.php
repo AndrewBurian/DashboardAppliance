@@ -3,16 +3,16 @@
 require_once 'baseModel.php';
 require_once 'helpers/recollectAPI.php';
 
-class supportRequestsMonthlyModel extends baseModel {
+class supportRequestsQuarterlyModel extends baseModel {
 	
 	function getData() {
 		
-                $amount= getRecollectSupportRequests('olathe', '1month');
+                $amount= getRecollectSupportRequests('olathe', '3months');
                 $prior = $amount['prior']; 
                 $last =  $amount['last'];
             
 		$params = array();
-		$params['title'] = "This Month's Support Requests";
+		$params['title'] = "Quarterly Support Requests";
 		$params['text'] = $last;
                 $params['footer'] = "Last updated on " . date("D M j");
 

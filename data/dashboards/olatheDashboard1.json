@@ -7,6 +7,10 @@
                 "supportRequestsDailyWidget",
                 "supportRequestsWeeklyWidget",
                 "supportRequestsMonthlyWidget",
-		"recollectCampaignWidget"
+                "graphWidget",
+                "graphWidget",
+                "supportRequestsQuarterlyWidget",
+                "recollectCampaignWidget"
+                
 	]
 }

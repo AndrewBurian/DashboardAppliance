@@ -3,6 +3,10 @@
 	"widgets": [
 		"searchWeeklyWidget",
                 "notificationsWeeklyWidget",
+                "remindersWeeklyWidget",
+                "supportRequestsDailyWidget",
+                "supportRequestsWeeklyWidget",
+                "supportRequestsMonthlyWidget",
 		"recollectCampaignWidget"
 	]
 }

@@ -1,4 +1,4 @@
-<div style="background-color:#B2008B; height: 100%; width: 100%;" class="widget widget-graph convergence rickshaw_graph"><h1 class="title" style="text-align: center;">{title}</h1>
+<div style="background-color:#30DB97; height: 100%; width: 100%;" class="widget widget-graph convergence rickshaw_graph"><h1 class="title" style="text-align: center;">{title}</h1>
 
     <h2 class="value" style="text-align: center;">{value}</h2>
 

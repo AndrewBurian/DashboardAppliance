@@ -46,8 +46,21 @@ class graphModel extends baseModel {
         }
 
         $params['data'] = "";
+        $lineparams = array();
+        /* check if there are holidays to mark */
+        if(count($holiday) != 0){
+            $lineparams['colour'] = "#fff";
+            for($c = 0; $c < count($holiday); ++$c){
+                $lineparams['Px0'] = (($holiday[$c] * $datapoints) + 2) . "%";
+                $lineparams['Py0'] = "0%";
+                $lineparams['Px1'] = (($holiday[$c] * $datapoints) + 2) . "%";
+                $lineparams['Py1'] = "100%";
+
+                $params['data'] .= parse($lineparams, "graphLine.php");
+            }
+        }
+
         for($i = 0; $i < $nlines; ++$i){
-            $lineparams = array();
             $lineparams['colour'] = $colours[$i]; // set the colour for the line
 
             $points = array();
@@ -56,6 +69,7 @@ class graphModel extends baseModel {
                 $points[] = 100 - (100 * ($gdata[$i][$datapoints - $j]/$maxVal)) + 3 . "%"; // JSON DATA HERE (y coordinate)
             }
 
+
             if (count($points) > 4) { // make sure there are x and y coordinates of at least two points
                 for ($k = 0; $k < (count($points) - 3); $k += 2) {
                     $lineparams['Px0'] = $points[$k];
@@ -63,18 +77,6 @@ class graphModel extends baseModel {
                     $lineparams['Px1'] = $points[$k + 2];
                     $lineparams['Py1'] = $points[$k + 3];
                     /* create a html line with the coordinates */
-                    $params['data'] .= parse($lineparams, "graphLine.php");
-                }
-            }
-
-            if(count($holiday) != 0){
-                $holidayparams = array();
-                for($c = 0; $c < count($holiday); ++$c){
-                    $lineparams['Px0'] = (($holiday[$c] * $datapoints) + 2) . "%";
-                    $lineparams['Py0'] = "0%";
-                    $lineparams['Px1'] = (($holiday[$c] * $datapoints) + 2) . "%";
-                    $lineparams['Py1'] = "100%";
-
                     $params['data'] .= parse($lineparams, "graphLine.php");
                 }
             }

@@ -2,10 +2,10 @@
 	"time": 1,
 	"widgets": [
 		
-		"numberWidget",
+		"mapWidget",
 		"recollectCampaignWidget",
 		"numberWidget",
 		"graphWidget"
-		
+
 	]
 }

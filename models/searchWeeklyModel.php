@@ -14,9 +14,6 @@ class searchWeeklyModel extends baseModel {
 		$params = array();
 		$params['title'] = "Recent Weekly Searches";
 		$params['text'] = $last;
-                //Confirmed working
-                //$params['text'] = getRecollectCount("olathe", "reminders", "1week");
-		
                 $params['footer'] = "Last updated on " . date("D M j");
 
                 $params['backgroundColor'] = "#aaa";

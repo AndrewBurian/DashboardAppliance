@@ -10,7 +10,7 @@ class recollectCampaignModel extends baseModel {
 		$params = array();
 		$params['title'] = "";
 		//Confirmed Working
-                //$params['text'] = getRecollectMessage("olathe");
+                $params['text'] = getRecollectMessage("olathe");
 		$params['footer'] = "";
 		
 		$params['backgroundImage'] = "bgRecollect.png";

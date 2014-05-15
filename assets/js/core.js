@@ -46,7 +46,7 @@ function getUpdate() {
 	
 	httpUpdate.onreadystatechange = function() {
 		
-		if (httpUpdate.status == 200 && httpUpdate.readyState == 4) {
+		if (httpUpdate.readyState == 4 && httpUpdate.status == 200) {
 			
 			if (httpUpdate.responseText.length == 0) {
 				console.log("No data to load.");

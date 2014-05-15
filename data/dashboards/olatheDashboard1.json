@@ -2,8 +2,15 @@
 	"time": 1,
 	"widgets": [
 		"searchWeeklyWidget",
-		"recollectCampaignWidget",
-		"numberWidget",
-		"graphTestWidget"
+                "notificationsWeeklyWidget",
+                "remindersWeeklyWidget",
+                "supportRequestsDailyWidget",
+                "supportRequestsWeeklyWidget",
+                "supportRequestsMonthlyWidget",
+                "graphWidget",
+                "graphWidget",
+                "supportRequestsQuarterlyWidget",
+                "recollectCampaignWidget"
+                
 	]
 }

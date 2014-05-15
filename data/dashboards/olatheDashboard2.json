@@ -1,9 +1,8 @@
 {
 	"time": 1,
 	"widgets": [
-		"numberWidget",
-		"recollectCampaignWidget",
-		"numberWidget",
-		"graphTestWidget"
+		"notificationsWeeklyWidget",
+                "remindersWeeklyWidget",
+		"recollectCampaignWidget"
 	]
 }

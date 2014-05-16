@@ -10,6 +10,10 @@
 
 //buildDashboard();
 
-require_once "helpers/recollectAPI.php";
+//require_once "helpers/recollectAPI.php";
 
-echo getRecollectMessage("olathe");
+//echo getRecollectMessage("olathe");
+
+require_once 'helpers/cacheManager.php';
+
+echo getCachedData("http://192.168.0.59/DashboardAppliance/testdata_delete/olathe_message.json");

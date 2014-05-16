@@ -18,7 +18,7 @@ class supportRequestsQuarterlyModel extends baseModel {
 		$params['text'] = $last;
                 $params['percentage'] = number_format($percent, 0)."%";
                 $params['footer'] = "Last updated on " . date("D M j");
-                $params['footerColor'] = "#e5800d";
+                $params['footerColor'] = "#ce6a00";
                 $params['backgroundColor'] = "#FF9618";
                 if ($last >= $prior){
                     $params['backgroundImage'] = 'up.png';

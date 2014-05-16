@@ -20,7 +20,7 @@ class supportRequestsDailyModel extends baseModel {
                 
                 $params['footer'] = "Last updated on " . date("D M j");
                 $params['backgroundColor'] = "#FF9618";
-                $params['footerColor'] = "#e5800d";
+                $params['footerColor'] = "#ce6a00";
                 if ($last >= $prior){
                     $params['backgroundImage'] = 'up.png';
                 }else{

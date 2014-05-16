@@ -2,7 +2,7 @@
  * The main js that runs the updating, xml parsing, etc
  */
 
-var updateInterval = 50;					//Update time in seconds
+var updateInterval = 20;					//Update time in seconds
 var piID = "1";							//The identifier of the raspberry pi
 var version = "0.1";					//The current version of the dashboard
 
@@ -53,7 +53,7 @@ function getUpdate() {
 				return;
 			}
 
-            console.log(httpUpdate.responseText);
+            //console.log(httpUpdate.responseText);
 
 			var parser = new DOMParser();
 			var xml = parser.parseFromString(httpUpdate.responseText, "application/xml");

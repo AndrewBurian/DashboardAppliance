@@ -36,7 +36,13 @@ function buildWidget($id) {
 
     if(isset($widget['script']))
         $widgetData['script'] = $widget['script'];
+    else 
+        $widgetData['script'] = "";
 
+     if(isset($widgetData['backgroundImage']))
+        $widgetData['backgroundImage'] = "background-image: url(data/images/{$widgetData['backgroundImage']})";
+
+    
     $widgetData['id'] = $id;
     $widgetData['content'] = parse($widgetData, $widget['type'] . 'Widget.php');
     $html = parse($widgetData, 'baseWidget.php');

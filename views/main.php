@@ -12,9 +12,10 @@
 
 		<!-- Scripts loaded at the end so the page loads faster.-->
         <script type="text/javascript"
-                src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false">
+                src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization&sensor=false">
         </script>
 		<script src="assets/js/core.js"></script>
+                
 		
 	</body>
 </html>

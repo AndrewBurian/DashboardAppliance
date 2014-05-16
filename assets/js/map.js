@@ -73,8 +73,6 @@ function initialize2() {
         center: new google.maps.LatLng(49.2500, -123.100),
         zoom: 12,
         disableDefaultUI: true
-//        zoomControl: false,
-//        panControl: false
     };
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
     var pointArray = new google.maps.MVCArray(garbageData);

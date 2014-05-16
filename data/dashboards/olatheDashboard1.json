@@ -1,5 +1,6 @@
 {
 	"time": 1,
+        "name": "Olathe Waste Department",
 	"widgets": [
 		"searchWeeklyWidget",
                 "notificationsWeeklyWidget",
@@ -9,6 +10,5 @@
                 "supportRequestsMonthlyWidget",
                 "graphWidget",
                 "graphWidget"
-                
 	]
 }

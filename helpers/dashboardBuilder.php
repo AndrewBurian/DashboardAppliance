@@ -27,11 +27,13 @@ function buildDashboard(){
     //Get the total number of Widgets
     $dashboardList = getDashboardList($_SESSION['clientID']);
     
+    $dashboardInfo = getDashboardInfo($dashboardList[$_SESSION['currentDashboard']]);
+    
     //hold snippet of html
-    $response = "<widget><h1><span>{$dashboardList[$_SESSION['currentDashboard']]}</span></h1></widget>";
+    $response = "<widget><h1><span>{$dashboardInfo['name']}</span></h1></widget>";
     
     //get the list of widgets on the current dashboard
-    $widgets = getWidgets($dashboardList[$_SESSION['currentDashboard']]);
+    $widgets = getWidgets($dashboardInfo['widgets']);
     
     //build html snippet
     foreach($widgets as $widget){
@@ -41,9 +43,8 @@ function buildDashboard(){
     //Send Response to Client
     sendDashboard($response);
     
-    
     //set the next update time of the dashboard
-    $_SESSION['dashboardTime'] = time() + (getDashboardTime($dashboardList[$_SESSION['currentDashboard']]) * 10);
+    $_SESSION['dashboardTime'] = time() + ($dashboardInfo['time'] * 60);
     
     //go to the next dashboard on the list
     $_SESSION['currentDashboard']++;
@@ -60,13 +61,10 @@ function buildDashboard(){
  * 
  * @param: $connection - connection to the database
  */
-function getWidgets($dashboardID){
+function getWidgets($widgetList){
     $widgets = array();
     
-    //$widgetData = pg_query($connection, "SELECT * FROM dashboardWidgets JOIN widget ON dashboardWidgets.widgetID = widget.id WHERE dashboardID = '{$_SESSION['dashboardID']}';");
-    $widgetData = getWidgetList($dashboardID);
-    
-    foreach ($widgetData as $widget){
+    foreach ($widgetList as $widget){
         $widgets[] = buildWidget($widget);
     }
     return $widgets;

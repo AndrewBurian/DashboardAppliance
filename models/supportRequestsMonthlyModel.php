@@ -10,12 +10,15 @@ class supportRequestsMonthlyModel extends baseModel {
                 $amount= getRecollectSupportRequests('olathe', '1month');
                 $prior = $amount['prior']; 
                 $last =  $amount['last'];
-            
+                $change = $last - $prior;
+                $percent = ($change/$prior) * 100;
+                
 		$params = array();
 		$params['title'] = "This Month's Support Requests";
 		$params['text'] = $last;
+                $params['percentage'] = number_format($percent, 0)."%";
                 $params['footer'] = "Last updated on " . date("D M j");
-
+                $params['footerColor'] = "#e5800d";
                 $params['backgroundColor'] = "#FF9618";
                 if ($last >= $prior){
                     $params['backgroundImage'] = 'up.png';

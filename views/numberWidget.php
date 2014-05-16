@@ -1,7 +1,9 @@
 <div id="numberWidget2" style=" ">
-	<h1 class="title">{title}</h1>
-
-	<h3>{text}</h3>
-
-	<p class="more-info">{footer}</p>
+	<h2 class="title">{title}</h2>
+        <br /><br />
+	<h1>{text}</h1>
+        <br />
+        <h3>{percentage}</h3>
+        <br />
+	<p class="more-info" style="color: {footerColor};">{footer}</p>
 </div>

@@ -1,0 +1,14 @@
+{
+	"time": 1,
+	"widgets": [
+		"notificationsWeeklyWidget",
+                "remindersWeeklyWidget",
+		"recollectCampaignWidget",
+                "mapWidget",
+                "supportRequestsQuarterlyWidget",
+                "supportRequestsDailyWidget",
+                "supportRequestsWeeklyWidget",
+                "supportRequestsMonthlyWidget",
+                "recollectCampaignWidget"
+	]
+}

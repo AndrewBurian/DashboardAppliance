@@ -6,9 +6,13 @@ class graphModel extends baseModel {
 
     function getData() {
 
+        $holiday = array();
+        $ti = strtotime("2014-05-06");
+        if((time()-(60*60*264)) < $ti)
+            $holiday[] = ((date("w")) + date("w", $ti) > 10) ? ((date("w")) + date("w", $ti)) : ((date("w")) + date("w", $ti) - 7);
+
         $nlines = 2; // number of lines displayed on the graph
         $datapoints = 10;
-        $holiday = array(3, 6, 8);
 
         //$gdata[] = getSearchesGraphData('vancouver', 'searches', $datapoints + 1);
         $gdata[] = array(236, 336, 259, 235, 139, 119, 225, 467, 392, 299, 261);
@@ -21,7 +25,7 @@ class graphModel extends baseModel {
 
         /* x values to loop through */
         $xVal = array("sun", "mon", "tue", "wed", "thu", "fri", "sat");
-
+        /* line colours */
         $colours = array("#000000", "#DF0101", "#0101DF", "#8904B1");
 
         $params = array();
@@ -68,7 +72,6 @@ class graphModel extends baseModel {
                 $points[] = $j * (100/$datapoints) + 2 . "%"; // x coordinate
                 $points[] = 100 - (100 * ($gdata[$i][$datapoints - $j]/$maxVal)) + 3 . "%"; // JSON DATA HERE (y coordinate)
             }
-
 
             if (count($points) > 4) { // make sure there are x and y coordinates of at least two points
                 for ($k = 0; $k < (count($points) - 3); $k += 2) {

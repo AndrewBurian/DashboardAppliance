@@ -108,17 +108,16 @@ h1 span {
 }
 
 .centerText{
-    position: relative;
-    top: 30px;
+     margin-top: 40px;
     font-size: 70px;
 }
 
 .percentage{
-    position: relative;
-    top: 40px;
+     margin-top: 10px;
 }
 
 .footer {
-    position:relative;
-    top: 40px;
+    margin-top: 1px;
+/*    position:relative;
+    top: 40px;*/
 }

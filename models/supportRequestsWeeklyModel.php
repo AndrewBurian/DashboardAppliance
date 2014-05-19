@@ -20,11 +20,11 @@ class supportRequestsWeeklyModel extends baseModel {
                 $params['footerColor'] = "#ce6a00";
                 $params['backgroundColor'] = "#FF9618";
                 if ($last > $prior){
-                    $params['arrowImage'] = 'up.png';
+                    $params['arrowImage'] = 'data/images/up.png';
                 }else if ($last < $prior){
-                    $params['arrowImage'] = 'down.png';
+                    $params['arrowImage'] = 'data/images/down.png';
                 } else {
-      
+                    $params['arrowImage'] = 'data/images/noChange.png';
                 }
                 return $params;
 		

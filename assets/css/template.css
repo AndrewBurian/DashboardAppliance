@@ -113,6 +113,7 @@ h1 span {
 }
 
 .percentage{
+<<<<<<< HEAD
     float:bottom;
      
 }
@@ -120,6 +121,13 @@ h1 span {
 .footer {
     float:bottom;
     
+=======
+     float:bottom;
+}
+
+.footer {
+
+>>>>>>> 1579d795ceba8e713d3e3d82c32656620f30ab24
 /*    position:relative;
     top: 40px;*/
 }

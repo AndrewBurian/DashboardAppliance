@@ -3,7 +3,7 @@
         <br /><br />
 	<h1>{text}</h1>
         <br />
-        <h3>{percentage}</h3>
+        <h3> <img src="{arrowImage}" />{percentage}</h3>
         <br />
 	<p class="more-info" style="color: {footerColor};">{footer}</p>
 </div>

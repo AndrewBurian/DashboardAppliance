@@ -1,6 +1,7 @@
 <?php
 
 require_once 'baseModel.php';
+require_once 'helpers/recollectAPI.php';
 
 class mapModel extends baseModel {
 

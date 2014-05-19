@@ -113,11 +113,13 @@ h1 span {
 }
 
 .percentage{
-     margin-top: 10px;
+    float:bottom;
+     
 }
 
 .footer {
-    margin-top: 1px;
+    float:bottom;
+    
 /*    position:relative;
     top: 40px;*/
 }

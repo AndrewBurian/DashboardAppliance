@@ -3,6 +3,6 @@
 	"model": "mapModel",
 	"type": "map",
         "script": "assets/js/map.js",
-	"width": 2,
-	"height": 2
+	"width": 6,
+	"height": 3
 }

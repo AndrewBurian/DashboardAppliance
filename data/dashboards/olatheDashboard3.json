@@ -1,0 +1,7 @@
+{
+	"time": 1,
+        "name": "Vancouver Heat Map",
+	"widgets": [
+                "vancouverLargeMapWidget"
+	]
+}

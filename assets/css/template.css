@@ -99,5 +99,26 @@ h1 span {
 }
 
 .widget .campaign-message {
-	vertical-align: center;
+    vertical-align: center;
+}
+
+.arrow {
+    position: relative;
+    top: 5px;
+}
+
+.centerText{
+    position: relative;
+    top: 30px;
+    font-size: 70px;
+}
+
+.percentage{
+    position: relative;
+    top: 40px;
+}
+
+.footer {
+    position:relative;
+    top: 50px;
 }

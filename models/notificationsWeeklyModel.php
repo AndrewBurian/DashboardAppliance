@@ -16,13 +16,13 @@ class notificationsWeeklyModel extends baseModel {
 		$params = array();
 		$params['title'] = "Recent Weekly Notifications";
 		$params['text'] = $last;
-                $params['percentage'] = number_format($percent, 0)."%";
+                $params['percentage'] = ceil($percent)."%";
                 $params['footer'] = "Last updated on " . date("D M j");
                 $params['footerColor'] = "#c94118"; 
                 $params['backgroundColor'] = "#EC663C";
-                if ($last > $prior){
+                if (ceil($percent) > 0){
                     $params['arrowImage'] = 'data/images/up.png';
-                }else if ($last < $prior){
+                }else if (ceil($percent) < 0){
                     $params['arrowImage'] = 'data/images/down.png';
                 } else {
                     $params['arrowImage'] = 'data/images/noChange.png';

@@ -16,9 +16,9 @@ class supportRequestsMonthlyModel extends baseModel {
      * 
      * @author  Mat Siwoski 
      */
-    function getData() {
+    function getData($widgetParams) {
 
-        $amount = getRecollectSupportRequests('vancouver', '1month');
+        $amount = getRecollectSupportRequests($widgetParams, '1month');
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;

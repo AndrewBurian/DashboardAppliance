@@ -5,12 +5,12 @@ require_once 'helpers/recollectAPI.php';
 
 class recollectCampaignModel extends baseModel {
 	
-	function getData() {
+	function getData($widgetParams) {
 		
 		$params = array();
 		$params['title'] = "";
 		//Confirmed Working
-                $params['text'] = getRecollectMessage("vancouver");
+                $params['text'] = getRecollectMessage($widgetParams);
 		$params['footer'] = "";
 		
 		$params['backgroundImage'] = "bgRecollect.png";

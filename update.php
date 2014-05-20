@@ -12,12 +12,6 @@ require_once 'controllers/widgetUpdater.php';
 require_once 'helpers/dashboardBuilder.php';
 require_once 'helpers/parser.php';
 
-// check to ensure the client has sent their ID with the request
-if(!isset($_GET['id'])){
-    echo "No id, rejected";
-    exit;
-}
-
 session_start();
 
 // Session is already started

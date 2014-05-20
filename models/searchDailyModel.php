@@ -16,9 +16,9 @@ class searchDailyModel extends baseModel {
      * 
      * @author  Mat Siwoski 
      */
-    function getData() {
+    function getData($widgetParams) {
 
-        $amount = getRecollectCount('vancouver', 'searches', '1day');
+        $amount = getRecollectCount($widgetParams, 'searches', '1day');
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;

@@ -27,7 +27,7 @@ function buildWidget($id) {
 
     /* get the appropriate data from the given model */
     $widgetModel = new $widget['model']();
-    $widgetData = $widgetModel->getData();
+    $widgetData = $widgetModel->getData($widget['additionalParams']);
 
     /* parse the data and get the html fragment for the widget */
     $widgetData['width'] = $widget['width'] * 306 + ($widget['width'] - 1) * 10;

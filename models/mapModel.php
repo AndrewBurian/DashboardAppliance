@@ -16,7 +16,7 @@ class mapModel extends baseModel {
      * 
      * @author  Damien Sathanielle/Mat Siwoski 
      */
-    function getData() {
+    function getData($widgetParams) {
         $params = array();
 
         return $params;

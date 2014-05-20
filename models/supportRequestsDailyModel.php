@@ -16,9 +16,9 @@ class supportRequestsDailyModel extends baseModel {
      * 
      * @author  Mat Siwoski 
      */
-    function getData() {
+    function getData($widgetParams) {
 
-        $amount = getRecollectSupportRequests('vancouver', '1day');
+        $amount = getRecollectSupportRequests($widgetParams, '1day');
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;

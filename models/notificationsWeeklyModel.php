@@ -16,9 +16,9 @@ class notificationsWeeklyModel extends baseModel {
      * 
      * @author  Mat Siwoski 
      */
-    function getData() {
+    function getData($widgetParams) {
 
-        $amount = getRecollectCount('vancouver', 'notifications', '1week');
+        $amount = getRecollectCount($widgetParams, 'notifications', '1week');
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;

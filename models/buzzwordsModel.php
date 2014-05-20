@@ -15,7 +15,7 @@ class buzzwordsModel extends baseModel {
      * 
      * @author  Damien Sathanielle 
      */
-    function getData() {
+    function getData($widgetParams) {
 
         $params = array();
         $params['title'] = "Buzzwords";

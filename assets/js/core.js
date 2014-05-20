@@ -3,7 +3,6 @@
  */
 
 var updateInterval = 20;					//Update time in seconds
-var piID = "1";							//The identifier of the raspberry pi
 
 /**
  * Initializes the javascript.
@@ -84,7 +83,7 @@ function getUpdate() {
 
     }
 
-    httpUpdate.open("GET", "update.php?id=" + piID, true);
+    httpUpdate.open("GET", "update.php", true);
     httpUpdate.send();
 }
 

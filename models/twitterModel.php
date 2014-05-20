@@ -52,7 +52,7 @@ class twitterModel extends baseModel {
      * 
      * @author  Mat Siwoski 
      */
-    function getData() {
+    function getData($widgetParams) {
         $params = array();
         $params['title'] = "City of Vancouver Twitter Feed";
        

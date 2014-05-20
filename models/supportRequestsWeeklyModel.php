@@ -16,9 +16,9 @@ class supportRequestsWeeklyModel extends baseModel {
      * 
      * @author  Mat Siwoski 
      */
-    function getData() {
+    function getData($widgetParams) {
 
-        $amount = getRecollectSupportRequests('vancouver', '1week');
+        $amount = getRecollectSupportRequests($widgetParams, '1week');
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;

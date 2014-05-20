@@ -16,9 +16,9 @@ class searchMonthlyModel extends baseModel {
      * 
      * @author  Mat Siwoski 
      */
-    function getData() {
+    function getData($widgetParams) {
 
-        $amount = getRecollectCount('vancouver', 'searches', '1month');
+        $amount = getRecollectCount($widgetParams, 'searches', '1month');
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;

@@ -1,5 +1,6 @@
 { 
 	"time": 30,
+        "additionalParams": "vancouver",
 	"model": "searchWeeklyModel", 
 	"type": "number", 
 	"width": 1, 

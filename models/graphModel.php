@@ -13,7 +13,7 @@ require_once 'helpers/recollectAPI.php';
  */
 class graphModel extends baseModel {
 
-    function getData() {
+    function getData($widgetParams) {
 
         $holiday = array();
         $day = 24;

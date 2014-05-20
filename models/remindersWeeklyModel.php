@@ -16,9 +16,9 @@ class remindersWeeklyModel extends baseModel {
      * 
      * @author  Mat Siwoski 
      */
-    function getData() {
+    function getData($widgetParams) {
 
-        $amount = getRecollectCount('vancouver', 'reminders', '1week');
+        $amount = getRecollectCount($widgetParams, 'reminders', '1week');
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;

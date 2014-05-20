@@ -1,8 +1,11 @@
 {
-	"time": 1,
-        "name": "",
-	"widgets": [
-		"notificationsWeeklyWidget",
-                "recollectCampaignWidget"
-	]
+    "time": 1,
+    "name": "Location of the most recent searches",
+    "widgets": [
+        "vancouverLargeMapWidget",
+        "infoWidget",
+        "searchDailyWidget",
+        "searchWeeklyWidget",
+        "searchMonthlyWidget"
+    ]
 }

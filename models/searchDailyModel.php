@@ -9,7 +9,7 @@ require_once 'helpers/recollectAPI.php';
  * 
  * @author  Mat Siwoski
  */
-class searchWeeklyModel extends baseModel {
+class searchDailyModel extends baseModel {
 
     /**
      * Set the correct parameter information.
@@ -18,8 +18,7 @@ class searchWeeklyModel extends baseModel {
      */
     function getData() {
 
-        //$amount = getRecollectSupportRequests('vancouver', '1week');
-        $amount = getRecollectCount('vancouver', 'searches', '1week');
+        $amount = getRecollectCount('vancouver', 'searches', '1day');
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;
@@ -30,7 +29,7 @@ class searchWeeklyModel extends baseModel {
             $percent = $change * 100;
         }
         $params = array();
-        $params['title'] = "Recent Weekly Searches";
+        $params['title'] = "Recent Daily Searches";
         $params['text'] = $last;
         $params['percentage'] = ceil($percent) . "% change vs. last week";
         $params['footer'] = "Last updated on " . date("D M j");

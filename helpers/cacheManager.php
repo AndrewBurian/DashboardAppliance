@@ -79,11 +79,11 @@ function getCachedData($url){
     
     if($newData != false){
         file_put_contents($cacheLocation . $newItem['file'], $newData);
-        chmod($cacheLocation . $newItem['file'], 777);
+        chmod($cacheLocation . $newItem['file'], 0777);
         $newItem['updated'] = time();
     } else {
         file_put_contents($cacheLocation .  $newItem['file'], 'error retrieving data');
-        chmod($cacheLocation . $newItem['file'], 777);
+        chmod($cacheLocation . $newItem['file'], 0777);
         $newItem['updated'] = 0;
     }
     

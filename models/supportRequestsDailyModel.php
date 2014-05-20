@@ -22,8 +22,12 @@ class supportRequestsDailyModel extends baseModel {
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;
-        $percent = ($change / $prior) * 100;
-
+        if ($prior > 0){
+           $percent = ($change / $prior) * 100;
+        }
+        else {
+            $percent = $change * 100;
+        }
         $params = array();
         $params['title'] = "Today's Support Requests";
         $params['text'] = $last;

@@ -10,14 +10,13 @@ require_once 'config/jsonConfig.php';
 /**
  * Build the widget
  * 
- * @Designer: 
- * @Programmer:
+ * @Designer: Mat Siwoski
+ * @Programmer: Mat Siwoski/Jordan Marling
  * 
  * @param: id of widget
  * @return: String of HTML snippet
  * 
  */
-
 function buildWidget($id) {
 	
     $widget = getWidget($id);

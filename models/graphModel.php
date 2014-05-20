@@ -2,14 +2,29 @@
 
 require_once 'baseModel.php';
 
+/**
+ * Graph model allowing an array of data points to be displayed
+ * on a line graph. Supports multiple lines per graph. An array of
+ * holiday dates can be set and will be shown as a vertical line
+ * on the graph.
+ *
+ * @author  Damien Sathanielle
+ */
 class graphModel extends baseModel {
 
     function getData() {
 
         $holiday = array();
-        $ti = strtotime("2014-05-06");
-        if((time()-(60*60*264)) < $ti)
-            $holiday[] = ((date("w")) + date("w", $ti) > 10) ? ((date("w")) + date("w", $ti)) : ((date("w")) + date("w", $ti) - 7);
+        $day = 24;
+        $ti = strtotime("2014-05-19"); // sample holiday
+
+        /* find the position of vertical line on the graph */
+        for($i = 0; $i < 10; ++$i){
+            if((time()-(60*60*($day * $i))) < $ti){
+                $holiday[] = 10 - $i;
+                break;
+            }
+        }
 
         $nlines = 2; // number of lines displayed on the graph
         $datapoints = 10;

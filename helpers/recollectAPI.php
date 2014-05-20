@@ -128,22 +128,29 @@ function getRecollectSearches($location, $timePeriod = null) {
 /*
  * Example:
  * getSearchesGraphData("olathe", "searches", "5");
- * will return array(5) { [0]=> int(217) [1]=> int(259) [2]=> int(235) [3]=> int(139) [4]=> int(119) }s
+ * will return array(5) { [0]=> int(217) [1]=> int(259) [2]=> int(235) [3]=> int(139) [4]=> int(119) }
  */
-
-/*function getSearchesGraphData($location, $category, $numberOfDays) {
-
+/**
+ * Get the count for a given number of days.
+ *
+ * @author  Robin Hsieh
+ * @param   string  The location of the searches
+ * @param   string  The category for the data
+ * @param   string  The number of days to retrieve data for
+ */
+function getSearchesGraphData($location, $category, $numberOfDays) {
+    /* how many days worth of data */
     $dayContents = array();
     for ($i = 0; $i < $numberOfDays; $i++) {
         $temp = getRecollectCount($location, $category, ($i + 1) . "day");
         $dayContents[] = $temp['last'];
     }
-
+    /* subtract the days to get individual values per day */
     $dayData[0] = $dayContents[0];
     for ($i = 0; $i < $numberOfDays - 1; $i++) {
         $dayData[] = $dayContents[$i + 1] - $dayContents[$i];
     }
 
     return $dayData;
-}*/
+}
 

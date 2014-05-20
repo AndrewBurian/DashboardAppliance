@@ -18,39 +18,42 @@ require_once 'config/jsonConfig.php';
  * 
  */
 function buildWidget($id) {
-	
+
     $widget = getWidget($id);
-    
+
     $_SESSION['widgets'][$id] = time() + $widget['time'];
-	
+
     require_once "models/{$widget['model']}.php";
 
     /* get the appropriate data from the given model */
     $widgetModel = new $widget['model']();
     $widgetData = $widgetModel->getData();
-    
+
     /* parse the data and get the html fragment for the widget */
     $widgetData['width'] = $widget['width'] * 306 + ($widget['width'] - 1) * 10;
     $widgetData['height'] = $widget['height'] * 306 + ($widget['height'] - 1) * 10;
 
-    if(isset($widget['script']))
+    if (isset($widget['script']))
         $widgetData['script'] = $widget['script'];
-    else 
+    else
         $widgetData['script'] = "";
 
-     if(isset($widgetData['backgroundImage']))
-        $widgetData['backgroundImage'] = "background-image: url(data/images/{$widgetData['backgroundImage']})";
 
-    
+    if (isset($widgetData['backgroundImage']))
+        $widgetData['backgroundImage'] = "background-image: url(data/images/{$widgetData['backgroundImage']})";
+    else
+        $widgetData['backgroundImage'] = "";
+
     $widgetData['id'] = $id;
     $widgetData['content'] = parse($widgetData, $widget['type'] . 'Widget.php');
     $html = parse($widgetData, 'baseWidget.php');
-    
+
     /* assign the widget id and the html fragment to an array */
     $widgetArray = array(
-        'wid' => $id,
-        'whtml' => $html
+        'id' => $id,
+        'script' => $widget['script'],
+        'html' => $html
     );
-	
+
     return $widgetArray;
 }

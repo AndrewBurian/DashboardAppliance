@@ -14,10 +14,15 @@
  * @param: String of HTML snippet
  * 
  */
-function sendDashboard($html) {
-    $response = new SimpleXMLElement("<response>$html</response>");
-    $response->addAttribute('type', 'dashboard');
-    echo $response->asXML();
+function sendDashboard($widgetArray) {
+//    $response = new SimpleXMLElement("<response>$html</response>");
+//    $response->addAttribute('type', 'dashboard');
+//    echo $response->asXML();
+    
+    $response = array();
+    $response['type'] = 'dashboard';
+    $response['widgets'] = $widgetArray;
+    echo json_encode($response);
 }
 
 /**
@@ -30,15 +35,19 @@ function sendDashboard($html) {
  * 
  */
 function sendWidget($widgets) {
-    $content = "<response>";
-    foreach ($widgets as $widget) {
-        $content .= $widget;
-    }
-    $content.= "</response>";
-
-    $response = new SimpleXMLElement($content);
-    $response->addAttribute('type', 'widget');
-    echo $response->asXML();
+//    $content = "<response>";
+//    foreach ($widgets as $widget) {
+//        $content .= $widget;
+//    }
+//    $content.= "</response>";
+//
+//    $response = new SimpleXMLElement($content);
+//    $response->addAttribute('type', 'widget');
+//    echo $response->asXML();
+    $response = array();
+    $response['type'] = 'widget';
+    $response['widgets'] = $widgets;
+    echo json_encode($response);
 }
 
 /**

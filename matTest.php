@@ -17,5 +17,5 @@
 require_once 'helpers/cacheManager.php';
 //require_once 'helpers/recollectAPI.php';
 
-echo getCachedData("http://andrew.burian.ca/pubkey");
+echo getCachedData("http://recollect.net/api/dashboard/vancouver/services/waste/count/searches/1day");
 //echo getRecollectSearches('vancouver');

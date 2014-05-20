@@ -60,7 +60,12 @@ function getCachedData($url){
     
     // make the new, unique data file
     $lastSlash = strrpos($url, '/') + 1;
-    $lastPeriod = strrpos($url, '.') + 1;
+    $lastPeriod = strrpos($url, '.');
+    if($lastPeriod == false){
+        $lastPeriod = strlen($url);
+    } else {
+        $lastPeriod++;
+    }
     $fileName = substr($url, $lastSlash, $lastPeriod - $lastSlash);
     $tmpfilename = $fileName;
     
@@ -85,5 +90,6 @@ function getCachedData($url){
     $cacheItems['cache'][] = $newItem;
     file_put_contents($cacheLocation . 'cache.json', json_encode($cacheItems));
     
+    echo "new<br/>";
     return $newData;
 }

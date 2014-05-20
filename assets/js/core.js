@@ -4,7 +4,6 @@
 
 var updateInterval = 20;					//Update time in seconds
 var piID = "1";							//The identifier of the raspberry pi
-var version = "0.1";					//The current version of the dashboard
 
 /**
  * Initializes the javascript.
@@ -85,7 +84,7 @@ function getUpdate() {
 
     }
 
-    httpUpdate.open("GET", "update.php?id=" + piID + "&version=" + version, true);
+    httpUpdate.open("GET", "update.php?id=" + piID, true);
     httpUpdate.send();
 }
 
@@ -106,6 +105,7 @@ function updateDashboard(json) {
     var widgets = json.widgets;
 
     document.getElementById("dashboard").innerHTML = "";
+    document.getElementById("scripts").innerHTML = "";
 
     for (var i = 0; i < widgets.length; i++) {
 
@@ -114,11 +114,11 @@ function updateDashboard(json) {
 
 
         var js = widgets[i].script;
-        if (js !== null) {
+        if (js != null) {
             var script = document.createElement("script");
             script.src = js;
             script.type = "text/javascript";
-            document.body.appendChild(script);
+            document.getElementById("scripts").appendChild(script);
         }
     }
 
@@ -146,7 +146,7 @@ function updateWidget(json) {
 
         widgetContent = widgets[i];
 
-        document.getElementById(widgetContent.id).innerHTML = widgetContent.html;
+        document.getElementById(widgetContent.id).outerHTML = widgetContent.html;
 
     }
 

@@ -30,19 +30,21 @@ function buildDashboard(){
     $dashboardInfo = getDashboardInfo($dashboardList[$_SESSION['currentDashboard']]);
     
     //hold snippet of html
-    //$response = array();
-    //$response = "<widget><h1><span>{$dashboardInfo['name']}</span></h1></widget>";
+    $response = array();
+//    $response = "<widget><h1><span>{$dashboardInfo['name']}</span></h1></widget>";
     
     //get the list of widgets on the current dashboard
     $widgets = getWidgets($dashboardInfo['widgets']);
+    $response[] = array('html'=> "<h1><span>{$dashboardInfo['name']}</span></h1>", "id" => 'title');
+    
     
     //build html snippet
-//    foreach($widgets as $widget){
-//        $response[] = $widget;
-//    }
+    foreach($widgets as $widget){
+        $response[] = $widget;
+    }
     
     //Send Response to Client
-    sendDashboard($widgets);
+    sendDashboard($response);
     
     //set the next update time of the dashboard
     $_SESSION['dashboardTime'] = time() + ($dashboardInfo['time'] * 60);

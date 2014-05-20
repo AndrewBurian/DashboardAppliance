@@ -1,8 +1,9 @@
 {
 	"time": 1,
-        "name": "",
+        "name": "Vancouver Dashboard",
 	"widgets": [
 		"notificationsWeeklyWidget",
-                "recollectCampaignWidget"
+                "recollectCampaignWidget",
+                "twitterWidget"
 	]
 }

@@ -31,7 +31,7 @@ class supportRequestsQuarterlyModel extends baseModel {
         $params = array();
         $params['title'] = "Quarterly Support Requests";
         $params['text'] = $last;
-        $params['percentage'] = ceil($percent) . "% change vs. last quarter";
+        $params['percentage'] = abs(ceil($percent)) . "% since last quarter";
         $params['footer'] = "Last updated on " . date("D M j");
         $params['footerColor'] = "#ce6a00";
         $params['backgroundColor'] = "#FF9618";

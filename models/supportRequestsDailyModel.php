@@ -29,9 +29,9 @@ class supportRequestsDailyModel extends baseModel {
             $percent = $change * 100;
         }
         $params = array();
-        $params['title'] = "Today's Support Requests";
+        $params['title'] = "Daily Support Requests";
         $params['text'] = $last;
-        $params['percentage'] = ceil($percent) . "% change vs. yesterday";
+        $params['percentage'] = abs(ceil($percent)) . "% since yesterday";
 
         $params['footer'] = "Last updated on " . date("D M j");
         $params['backgroundColor'] = "#FF9618";

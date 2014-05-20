@@ -58,20 +58,27 @@ function getCachedData($url){
     $newItem['url'] = $url;
     $newItem['refresh'] = 1;
     
-    $lastSlash = strrpos($url, '/');
-    $lastPeriod = strrpos($url, '.');
+    // make the new, unique data file
+    $lastSlash = strrpos($url, '/') + 1;
+    $lastPeriod = strrpos($url, '.') + 1;
+    $fileName = substr($url, $lastSlash, $lastPeriod - $lastSlash);
+    $tmpfilename = $fileName;
     
-    $newItem['file'] = substr($url, $lastSlash, $lastPeriod - $lastSlash);
+    for($i = 1; file_exists($cacheLocation . $tmpfilename); $i++){
+        $tmpfilename = $fileName . $i;
+    }
+    
+    $newItem['file'] = $tmpfilename;
     
     $newData = file_get_contents($url);
     
     if($newData != false){
         file_put_contents($cacheLocation . $newItem['file'], $newData);
-        chmod($cacheLocation . $file, 777);
+        chmod($cacheLocation . $newItem['file'], 777);
         $newItem['updated'] = time();
     } else {
         file_put_contents($cacheLocation .  $newItem['file'], 'error retrieving data');
-        chmod($cacheLocation . $file, 777);
+        chmod($cacheLocation . $newItem['file'], 777);
         $newItem['updated'] = 0;
     }
     

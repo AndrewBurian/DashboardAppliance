@@ -90,6 +90,5 @@ function getCachedData($url){
     $cacheItems['cache'][] = $newItem;
     file_put_contents($cacheLocation . 'cache.json', json_encode($cacheItems));
     
-    echo "new<br/>";
     return $newData;
 }

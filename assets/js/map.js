@@ -11,7 +11,6 @@ xhr.onload = function() {
             return;
         }
         var jsonData = JSON.parse(xhr.responseText);
-        
         var garbageData = [];
         for (var i = 0; i < jsonData.length; i++) {
             garbageData.push(new google.maps.LatLng(jsonData[i]['location'][1],jsonData[i]['location'][0]));

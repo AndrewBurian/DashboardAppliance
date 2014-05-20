@@ -6,7 +6,6 @@
 <div id="{id}" style="width: 100%;height: 100%;">
 
 </div>
-<!--
 <script src="http://maps.googleapis.com/maps/api/js?key={key}&sensor=false"></script>
 <script>
     function initialize()
@@ -34,4 +33,4 @@
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
-</script>-->
+</script>

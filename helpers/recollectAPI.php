@@ -80,11 +80,11 @@ function getRecollectReminders($location, $timePeriod = null) {
 
 function getRecollectSearches($location, $timePeriod = null) {
     if ($timePeriod == null) {
-        $contents = getCachedData("testdata_delete/{$location}_searches.json");
+        $contents = getCachedData("https://recollect.net/api/dashboard/{$location}/services/waste/activity/searches");
         //$contents = file_get_contents("https://recollect.net/api/dashboard/{$location}/services/waste/activity/searches");
         $data = json_decode($contents, TRUE);
     } else {
-        $contents = getCachedData("testdata_delete/{$location}_searches.json");
+        $contents = getCachedData("https://recollect.net/api/dashboard/{$location}/services/waste/activity/searches?since={$timePeriod}");
         //$contents = file_get_contents("https://recollect.net/api/dashboard/{$location}/services/waste/activity/searches?since={$timePeriod}");
         $data = json_decode($contents, TRUE);
     }

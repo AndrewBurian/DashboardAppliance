@@ -11,7 +11,7 @@
 function getCachedData($url){
     
     // Get the contents of the cache info file
-    $string = file_get_contents('data/cache/cache.json');
+    $string = file_get_contents('/data/cache/cache.json');
     $cacheItems = json_decode($string, true);
     
     // look to see if our file is in cache

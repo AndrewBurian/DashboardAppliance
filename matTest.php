@@ -15,7 +15,7 @@
 //echo getRecollectMessage("olathe");
 
 require_once 'helpers/cacheManager.php';
-require_once 'helpers/recollectAPI.php';
+//require_once 'helpers/recollectAPI.php';
 
-//echo getCachedData("http://192.168.0.59/DashboardAppliance/testdata_delete/olathe_message.json");
-echo getRecollectSearches('vancouver');
+echo getCachedData("http://andrew.burian.ca/pubkey");
+//echo getRecollectSearches('vancouver');

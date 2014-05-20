@@ -2,6 +2,7 @@
 	"time": 1,
         "name": "Searches in Vancouver",
 	"widgets": [
-                "vancouverLargeMapWidget"
+                "vancouverLargeMapWidget",
+                "searchWeeklyWidget"
 	]
 }

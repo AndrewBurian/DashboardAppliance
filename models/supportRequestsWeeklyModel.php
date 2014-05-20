@@ -18,7 +18,7 @@ class supportRequestsWeeklyModel extends baseModel {
      */
     function getData() {
 
-        $amount = getRecollectSupportRequests('olathe', '1week');
+        $amount = getRecollectSupportRequests('vancouver', '1week');
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;
@@ -32,7 +32,7 @@ class supportRequestsWeeklyModel extends baseModel {
         $params = array();
         $params['title'] = "This Week's Support Requests";
         $params['text'] = $last;
-        $params['percentage'] = ceil($percent) . "%";
+        $params['percentage'] = ceil($percent) . "% change vs. last week";
         $params['footer'] = "Last updated on " . date("D M j");
         $params['footerColor'] = "#ce6a00";
         $params['backgroundColor'] = "#FF9618";

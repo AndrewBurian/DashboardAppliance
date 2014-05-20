@@ -18,7 +18,7 @@ class supportRequestsQuarterlyModel extends baseModel {
      */
     function getData() {
 
-        $amount = getRecollectSupportRequests('olathe', '3months');
+        $amount = getRecollectSupportRequests('vancouver', '3months');
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;
@@ -31,7 +31,7 @@ class supportRequestsQuarterlyModel extends baseModel {
         $params = array();
         $params['title'] = "Quarterly Support Requests";
         $params['text'] = $last;
-        $params['percentage'] = ceil($percent) . "%";
+        $params['percentage'] = ceil($percent) . "% change vs. last quarter";
         $params['footer'] = "Last updated on " . date("D M j");
         $params['footerColor'] = "#ce6a00";
         $params['backgroundColor'] = "#FF9618";

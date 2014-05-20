@@ -18,7 +18,7 @@ class remindersWeeklyModel extends baseModel {
      */
     function getData() {
 
-        $amount = getRecollectCount('olathe', 'reminders', '1week');
+        $amount = getRecollectCount('vancouver', 'reminders', '1week');
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;
@@ -31,7 +31,7 @@ class remindersWeeklyModel extends baseModel {
         $params = array();
         $params['title'] = "Recent Weekly Reminders";
         $params['text'] = $last;
-        $params['percentage'] = ceil($percent) . "%";
+        $params['percentage'] = ceil($percent) . "% change vs. last week";
 
         $params['footer'] = "Last updated on " . date("D M j");
         $params['footerColor'] = "#c94118";

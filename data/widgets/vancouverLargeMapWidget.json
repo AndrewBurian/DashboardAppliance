@@ -4,5 +4,5 @@
 	"type": "map",
         "script": "assets/js/map.js",
 	"width": 6,
-	"height": 3
+	"height": 2
 }

@@ -18,7 +18,7 @@ class supportRequestsDailyModel extends baseModel {
      */
     function getData() {
 
-        $amount = getRecollectSupportRequests('olathe', '1day');
+        $amount = getRecollectSupportRequests('vancouver', '1day');
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;
@@ -31,7 +31,7 @@ class supportRequestsDailyModel extends baseModel {
         $params = array();
         $params['title'] = "Today's Support Requests";
         $params['text'] = $last;
-        $params['percentage'] = ceil($percent) . "%";
+        $params['percentage'] = ceil($percent) . "% change vs. yesterday";
 
         $params['footer'] = "Last updated on " . date("D M j");
         $params['backgroundColor'] = "#FF9618";

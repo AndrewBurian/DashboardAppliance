@@ -66,12 +66,10 @@ function getRecollectSupportRequests($location, $timePeriod) {
 function getRecollectCount($location, $category, $timePeriod = null) {
     if ($timePeriod == null) {
         $contents = getCachedData("https://recollect.net/api/dashboard/{$location}/services/waste/count/{$category}");
-        //$contents = getCachedData("testdata_delete/{$location}_{$category}_{$timePeriod}.json");
         //$contents = file_get_contents("https://recollect.net/api/dashboard/{$location}/services/waste/count/{$category}");
         $data = json_decode($contents, TRUE);
     } else {
         $contents = getCachedData("https://recollect.net/api/dashboard/{$location}/services/waste/count/{$category}/$timePeriod");
-        //$contents = getCachedData("testdata_delete/{$location}_{$category}_{$timePeriod}.json");
         //$contents = file_get_contents("https://recollect.net/api/dashboard/{$location}/services/waste/count/{$category}/$timePeriod");
         $data = json_decode($contents, TRUE);
     }
@@ -94,12 +92,10 @@ function getRecollectCount($location, $category, $timePeriod = null) {
 function getRecollectReminders($location, $timePeriod = null) {
     if ($timePeriod == null) {
         $contents = getCachedData("https://recollect.net/api/dashboard/{$location}/services/waste/activity/reminders");
-        //$contents = getCachedData("testdata_delete/{$location}_reminders.json");
         //$contents = file_get_contents("https://recollect.net/api/dashboard/{$location}/services/waste/activity/reminders");
         $data = json_decode($contents, TRUE);
     } else {
         $contents = getCachedData("https://recollect.net/api/dashboard/{$location}/services/waste/activity/reminders?since={$timePeriod}");
-        //$contents = getCachedData("testdata_delete/{$location}_reminders_since_2014_05_01.json");
         //$contents = file_get_contents("https://recollect.net/api/dashboard/{$location}/services/waste/activity/reminders?since={$timePeriod}");
         $data = json_decode($contents, TRUE);
     }

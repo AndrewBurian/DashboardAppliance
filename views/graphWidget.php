@@ -17,5 +17,9 @@
 
     {xAxis}
 
+    <dl class="legend">
+        {legend}
+    </dl>
+
 
 </div>

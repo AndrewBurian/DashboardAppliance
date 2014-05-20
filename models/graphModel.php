@@ -19,19 +19,21 @@ class graphModel extends baseModel {
         $ti = strtotime("2014-05-19"); // sample holiday
 
         /* find the position of vertical line on the graph */
-        for($i = 0; $i < 10; ++$i){
+        for($i = 0; $i < 12; ++$i){
             if((time()-(60*60*($day * $i))) < $ti){
-                $holiday[] = 10 - $i;
+                $holiday[] = 11 - $i;
                 break;
             }
         }
 
-        $nlines = 2; // number of lines displayed on the graph
+        $nlines = 3; // number of lines displayed on the graph
         $datapoints = 10;
 
-        //$gdata[] = getSearchesGraphData('vancouver', 'searches', $datapoints + 1);
-        $gdata[] = array(236, 336, 259, 235, 139, 119, 225, 467, 392, 299, 261);
-        $gdata[] = array(143, 432, 664, 545, 923, 1112, 788, 667, 547, 748, 535);
+        $lineName = array("vancouver searches", "surrey searches", "coquitlam searches");
+
+        $gdata[] = getSearchesGraphData('vancouver', 'searches', $datapoints + 1);
+        $gdata[] = getSearchesGraphData('surrey', 'searches', $datapoints + 1);
+        $gdata[] = getSearchesGraphData('coquitlam', 'searches', $datapoints + 1);
 
         $n = 0;
         for($m = 0; $m < count($gdata); ++$m)
@@ -45,7 +47,7 @@ class graphModel extends baseModel {
 
         $params = array();
         $params['title'] = "Tons Collected in 2013";
-        $params['moreinfo'] = "today";
+        $params['moreinfo'] = $lineName[0] . " today";
         $params['value'] = $gdata[0][0]; // current value displayed
 
         /* create values and position for the x-axis */
@@ -59,12 +61,13 @@ class graphModel extends baseModel {
         /* create values and position for the y-axis */
         $params['yAxis'] = "";
         for($a = 0; $a < 8; ++$a){
-            $textparams['yP'] = $maxVal - ($a * ($maxVal/8));
+            $textparams['yP'] = $maxVal - (($a * floor(($maxVal/8)/10) * 10));
             $textparams['yV'] = ($a * 74.258) + 25;
             $params['yAxis'] .= parse($textparams, "graphYAxis.php");
         }
 
         $params['data'] = "";
+        $params['legend'] = "";
         $lineparams = array();
         /* check if there are holidays to mark */
         if(count($holiday) != 0){
@@ -81,11 +84,15 @@ class graphModel extends baseModel {
 
         for($i = 0; $i < $nlines; ++$i){
             $lineparams['colour'] = $colours[$i]; // set the colour for the line
+            $legendparams['colour'] = $colours[$i]; // set the colour for the legend
+            $legendparams['name'] = $lineName[$i];
+
+            $params['legend'] .= parse($legendparams, "graphLegend.php");
 
             $points = array();
             for($j = 0; $j < $datapoints + 1; ++$j){
                 $points[] = $j * (100/$datapoints) + 2 . "%"; // x coordinate
-                $points[] = 100 - (100 * ($gdata[$i][$datapoints - $j]/$maxVal)) + 3 . "%"; // JSON DATA HERE (y coordinate)
+                $points[] = 98 - (100 * ($gdata[$i][$datapoints - $j]/$maxVal)) + 3 . "%"; // JSON DATA HERE (y coordinate)
             }
 
             if (count($points) > 4) { // make sure there are x and y coordinates of at least two points

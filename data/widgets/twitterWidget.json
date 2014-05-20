@@ -2,6 +2,6 @@
 	"time": 10,
 	"model": "twitterModel", 
 	"type": "twitter", 
-	"width": 2, 
+	"width": 3, 
 	"height": 1
 }

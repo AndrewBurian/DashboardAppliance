@@ -5,6 +5,7 @@
 		{ "id": 2, "dashboards": [ "numberDashboard" ] },
                 { "id": 3, "dashboards": [ "olatheDashboard3", "olatheDashboard2", "olatheDashboard3"]},
                 { "id": 4, "dashboards": [ "vancouverDashboard1", "vancouverDashboard2"]}
+
 		
 	]
 }

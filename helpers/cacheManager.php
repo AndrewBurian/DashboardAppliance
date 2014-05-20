@@ -14,7 +14,7 @@
 function getCachedData($url){
     
     // Hard code the file path
-    $cacheLocation = '/var/www/DashboardAppliance/data/cache/';
+    $cacheLocation = 'data/cache/';
 
     // Get the contents of the cache info file
     $string = file_get_contents($cacheLocation . 'cache.json');

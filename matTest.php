@@ -15,7 +15,9 @@
 //echo getRecollectMessage("olathe");
 
 require_once 'helpers/cacheManager.php';
-//require_once 'helpers/recollectAPI.php';
+require_once 'helpers/recollectAPI.php';
 
-echo getCachedData("http://recollect.net/api/dashboard/vancouver/services/waste/count/searches/1day");
+//echo getCachedData("http://recollect.net/api/dashboard/coquitlam/services/waste/count/supportrequests/11day");
+$gdata[] = getSearchesGraphData('vancouver', 'supportrequests', 11);
+var_dump($gdata);
 //echo getRecollectSearches('vancouver');

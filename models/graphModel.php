@@ -1,6 +1,7 @@
 <?php
 
 require_once 'baseModel.php';
+require_once 'helpers/recollectAPI.php';
 
 /**
  * Graph model allowing an array of data points to be displayed
@@ -26,14 +27,14 @@ class graphModel extends baseModel {
             }
         }
 
-        $nlines = 3; // number of lines displayed on the graph
+        $nlines = 1; // number of lines displayed on the graph
         $datapoints = 10;
 
-        $lineName = array("vancouver searches", "surrey searches", "coquitlam searches");
+        $lineName = array("Vancouver", "surrey searches", "coquitlam searches");
 
-        $gdata[] = getSearchesGraphData('vancouver', 'searches', $datapoints + 1);
-        $gdata[] = getSearchesGraphData('surrey', 'searches', $datapoints + 1);
-        $gdata[] = getSearchesGraphData('coquitlam', 'searches', $datapoints + 1);
+        $gdata[] = getSearchesGraphData('vancouver', 'supportrequests', $datapoints + 1);
+        //$gdata[] = getSearchesGraphData('surrey', 'supportrequests', $datapoints + 1);
+        //$gdata[] = getSearchesGraphData('coquitlam', 'supportrequests', $datapoints + 1);
 
         $n = 0;
         for($m = 0; $m < count($gdata); ++$m)
@@ -46,7 +47,7 @@ class graphModel extends baseModel {
         $colours = array("#000000", "#DF0101", "#0101DF", "#8904B1");
 
         $params = array();
-        $params['title'] = "Tons Collected in 2013";
+        $params['title'] = "Support Requests";
         $params['moreinfo'] = $lineName[0] . " today";
         $params['value'] = $gdata[0][0]; // current value displayed
 
@@ -61,7 +62,7 @@ class graphModel extends baseModel {
         /* create values and position for the y-axis */
         $params['yAxis'] = "";
         for($a = 0; $a < 8; ++$a){
-            $textparams['yP'] = $maxVal - (($a * floor(($maxVal/8)/10) * 10));
+            $textparams['yP'] = round($maxVal - ($a * ($maxVal/8)));
             $textparams['yV'] = ($a * 74.258) + 25;
             $params['yAxis'] .= parse($textparams, "graphYAxis.php");
         }
@@ -92,7 +93,7 @@ class graphModel extends baseModel {
             $points = array();
             for($j = 0; $j < $datapoints + 1; ++$j){
                 $points[] = $j * (100/$datapoints) + 2 . "%"; // x coordinate
-                $points[] = 98 - (100 * ($gdata[$i][$datapoints - $j]/$maxVal)) + 3 . "%"; // JSON DATA HERE (y coordinate)
+                $points[] = 96 - (100 * ($gdata[$i][$datapoints - $j]/$maxVal)) + 3 . "%"; // JSON DATA HERE (y coordinate)
             }
 
             if (count($points) > 4) { // make sure there are x and y coordinates of at least two points

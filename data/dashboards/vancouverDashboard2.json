@@ -1,9 +1,11 @@
 {
-	"time": 1,
-        "name": "Vancouver Dashboard",
-	"widgets": [
-		"notificationsWeeklyWidget",
-                "recollectCampaignWidget",
-                "twitterWidget"
-	]
+    "time": 1,
+    "name": "Location of the most recent searches",
+    "widgets": [
+        "vancouverLargeMapWidget",
+        "infoWidget",
+        "searchDailyWidget",
+        "searchWeeklyWidget",
+        "searchMonthlyWidget"
+    ]
 }

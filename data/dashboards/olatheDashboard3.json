@@ -1,6 +1,6 @@
 {
 	"time": 1,
-        "name": "Vancouver Heat Map",
+        "name": "Searches in Vancouver",
 	"widgets": [
                 "vancouverLargeMapWidget"
 	]

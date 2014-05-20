@@ -4,7 +4,6 @@
 
 var updateInterval = 20;					//Update time in seconds
 var piID = "1";							//The identifier of the raspberry pi
-var version = "0.1";					//The current version of the dashboard
 
 /**
  * Initializes the javascript.
@@ -19,12 +18,12 @@ var version = "0.1";					//The current version of the dashboard
  * 
  */
 function initialize() {
-	
-	//get the first update.
-	getUpdate();
-	
-	//start the update timer.
-	setInterval(getUpdate, updateInterval * 1000);
+
+    //get the first update.
+    getUpdate();
+
+    //start the update timer.
+    setInterval(getUpdate, updateInterval * 1000);
 }
 
 /**
@@ -41,49 +40,52 @@ function initialize() {
  * 
  */
 function getUpdate() {
-	
-	var httpUpdate = new XMLHttpRequest();
-	
-	httpUpdate.onreadystatechange = function() {
-		
-		if (httpUpdate.readyState == 4 && httpUpdate.status == 200) {
-			
-			if (httpUpdate.responseText.length == 0) {
-				console.log("No data to load.");
-				return;
-			}
 
-            console.log(httpUpdate.responseText);
-                 
-			var parser = new DOMParser();
-			var xml = parser.parseFromString(httpUpdate.responseText, "application/xml");
-			
-			//get the response node and the type of update
-			var rootNode = xml.getElementsByTagName("response")[0];
-			var type = rootNode.getAttribute("type");
-			
-			switch(type) {
-				
-				case "dashboard": //Update dashboard
-					updateDashboard(rootNode);
-					break;
-				
-				case "widget": //Update widgets
-					updateWidget(rootNode);
-					break;
-				
-				case "reload": //Update Webpage
-					updateWebpage();
-					break;
-				
-			}
-			
-		}
-		
-	}
-	
-	httpUpdate.open("GET", "update.php?id=" + piID + "&version=" + version, true);
-	httpUpdate.send();
+    var httpUpdate = new XMLHttpRequest();
+
+    httpUpdate.onreadystatechange = function() {
+
+        if (httpUpdate.readyState == 4 && httpUpdate.status == 200) {
+
+            if (httpUpdate.responseText.length == 0) {
+                console.log("No data to load.");
+                return;
+            }
+
+            //console.log(httpUpdate.responseText);
+            
+            var json = JSON.parse(httpUpdate.responseText);
+
+            console.log(json);
+            //var parser = new DOMParser();
+            //var xml = parser.parseFromString(httpUpdate.responseText, "application/xml");
+
+            //get the response node and the type of update
+            //var rootNode = xml.getElementsByTagName("response")[0];
+            //var type = rootNode.getAttribute("type");
+
+            switch (json.type) {
+
+                case "dashboard": //Update dashboard
+                    updateDashboard(json);
+                    break;
+
+                case "widget": //Update widgets
+                    updateWidget(json);
+                    break;
+
+                case "reload": //Update Webpage
+                    updateWebpage();
+                    break;
+
+            }
+
+        }
+
+    }
+
+    httpUpdate.open("GET", "update.php?id=" + piID, true);
+    httpUpdate.send();
 }
 
 /**
@@ -97,27 +99,29 @@ function getUpdate() {
  * @return:
  * 
  */
-function updateDashboard(xml) {
-	
-	var widgets = xml.getElementsByTagName("widget");
-	
-	document.getElementById("dashboard").innerHTML = "";
-	
-	for(var i = 0; i < widgets.length; i++) {
+function updateDashboard(json) {
+
+    //var widgets = xml.getElementsByTagName("widget");
+    var widgets = json.widgets;
+
+    document.getElementById("dashboard").innerHTML = "";
+    document.getElementById("scripts").innerHTML = "";
+
+    for (var i = 0; i < widgets.length; i++) {
 
 
-		document.getElementById("dashboard").innerHTML += widgets[i].innerHTML;
+        document.getElementById("dashboard").innerHTML += widgets[i].html;
 
 
-        var js = widgets[i].getAttribute("script");
+        var js = widgets[i].script;
         if (js != null) {
             var script = document.createElement("script");
             script.src = js;
             script.type = "text/javascript";
-            document.body.appendChild(script);
+            document.getElementById("scripts").appendChild(script);
         }
-	}
-	
+    }
+
 }
 
 /**
@@ -131,20 +135,21 @@ function updateDashboard(xml) {
  * @return:
  * 
  */
-function updateWidget(xml) {
-	
-	var widgets = xml.getElementsByTagName("widget");
-	
-	var widgetContent;
-	
-	for(var i = 0; i < widgets.length; i++) {
-		
-		widgetContent = widgets[i].getElementsByTagName("div")[0];
-		
-		document.getElementById(widgetContent.id).innerHTML = widgetContent.innerHTML;
-		
-	}
-	
+function updateWidget(json) {
+
+    //var widgets = xml.getElementsByTagName("widget");
+    var widgets = json.widgets;
+
+    var widgetContent;
+
+    for (var i = 0; i < widgets.length; i++) {
+
+        widgetContent = widgets[i];
+
+        document.getElementById(widgetContent.id).outerHTML = widgetContent.html;
+
+    }
+
 }
 
 /**
@@ -159,13 +164,13 @@ function updateWidget(xml) {
  * 
  */
 function updateWebpage(xml) {
-	
-	//Forces the client to reload all the data on the webpage.
-	location.reload(true);
-	
+
+    //Forces the client to reload all the data on the webpage.
+    location.reload(true);
+
 }
 
 //run the initialize function to start the javascript.
 window.onload = function() {
-	initialize();
+    initialize();
 }

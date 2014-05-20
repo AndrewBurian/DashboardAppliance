@@ -4,7 +4,11 @@
 		{ "id": 1, "dashboards": [ "numberDashboard", "graphDashboard" ] },
 		{ "id": 2, "dashboards": [ "numberDashboard" ] },
                 { "id": 3, "dashboards": [ "olatheDashboard3", "olatheDashboard2", "olatheDashboard3"]},
+<<<<<<< HEAD
                 { "id": 4, "dashboards": [ "vancouverDashboard2"]}
+=======
+                { "id": 4, "dashboards": [ "vancouverDashboard2", "vancouverDashboard1"]}
+>>>>>>> 30950caefc6268971fbc94e3e26b6c0fb522f6f6
 		
 	]
 }

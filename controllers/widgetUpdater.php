@@ -21,7 +21,7 @@ function update(){
 	foreach ($_SESSION['widgets'] as $id => $time) {
 		if ($time >= time()) {
 			$widget = buildWidget($id);
-			$widgetData[] = $widget['whtml'];
+			$widgetData[] = $widget;
 		}
 	}
 	

@@ -31,7 +31,7 @@ class notificationsWeeklyModel extends baseModel {
         $params = array();
         $params['title'] = "Recent Weekly Notifications";
         $params['text'] = $last;
-        $params['percentage'] = ceil($percent) . "% change vs. last week";
+        $params['percentage'] = abs(ceil($percent)) . "% since last week";
         $params['footer'] = "Last updated on " . date("D M j");
         $params['footerColor'] = "#c94118";
         $params['backgroundColor'] = "#EC663C";

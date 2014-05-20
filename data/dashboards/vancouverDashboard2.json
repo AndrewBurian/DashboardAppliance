@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "time": 1,
     "name": "Location of the most recent searches",
     "widgets": [
@@ -8,4 +9,13 @@
         "searchWeeklyWidget",
         "searchMonthlyWidget"
     ]
+=======
+	"time": 1,
+        "name": "Vancouver Dashboard",
+	"widgets": [
+		"notificationsWeeklyWidget",
+                "recollectCampaignWidget",
+                "twitterWidget"
+	]
+>>>>>>> 30950caefc6268971fbc94e3e26b6c0fb522f6f6
 }

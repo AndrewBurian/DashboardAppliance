@@ -32,7 +32,7 @@ class supportRequestsWeeklyModel extends baseModel {
         $params = array();
         $params['title'] = "Weekly Support Requests";
         $params['text'] = $last;
-        $params['percentage'] = abs(ceil($percent)) . "% since last week";
+        $params['percentage'] = abs(ceil($percent)) . "% vs. past 7 days";
         $params['footer'] = "Last updated on " . date("D M j");
         $params['footerColor'] = "#ce6a00";
         $params['backgroundColor'] = "#FF9618";

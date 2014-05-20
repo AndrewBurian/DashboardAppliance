@@ -31,7 +31,7 @@ class supportRequestsMonthlyModel extends baseModel {
         $params = array();
         $params['title'] = "Monthly Support Requests";
         $params['text'] = $last;
-        $params['percentage'] = abs(ceil($percent)) . "% since last month";
+        $params['percentage'] = abs(ceil($percent)) . "% vs. past month";
         $params['footer'] = "Last updated on " . date("D M j");
         $params['footerColor'] = "#ce6a00";
         $params['backgroundColor'] = "#FF9618";

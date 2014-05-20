@@ -13,8 +13,9 @@
  */
 function getCachedData($url){
     
-    $cacheLocation = 'data/cache/';
-    
+    // Hard code the file path
+    $cacheLocation = '/var/www/DashboardAppliance/data/cache/';
+
     // Get the contents of the cache info file
     $string = file_get_contents($cacheLocation . 'cache.json');
     $cacheItems = json_decode($string, true);
@@ -79,11 +80,11 @@ function getCachedData($url){
     
     if($newData != false){
         file_put_contents($cacheLocation . $newItem['file'], $newData);
-        chmod($cacheLocation . $newItem['file'], 777);
+        chmod($cacheLocation . $newItem['file'], 0777);
         $newItem['updated'] = time();
     } else {
         file_put_contents($cacheLocation .  $newItem['file'], 'error retrieving data');
-        chmod($cacheLocation . $newItem['file'], 777);
+        chmod($cacheLocation . $newItem['file'], 0777);
         $newItem['updated'] = 0;
     }
     

@@ -17,7 +17,8 @@ require_once 'cacheManager.php';
  * @param   string  The location for the current message 
  */
 function getRecollectMessage($location) {
-    $contents = getCachedData("testdata_delete/{$location}_message.json");
+    $contents = getCachedData("https://recollect.net/api/dashboard/{$location}/services/waste/message");
+    //$contents = getCachedData("testdata_delete/{$location}_message.json");
     //$contents = file_get_contents("https://recollect.net/api/dashboard/{$location}/services/waste/message");
     $data = json_decode($contents, TRUE);
 
@@ -39,7 +40,8 @@ function getRecollectMessage($location) {
  * @param   string  The time period for the data
  */
 function getRecollectSupportRequests($location, $timePeriod) {
-    $contents = getCachedData("testdata_delete/{$location}_supportrequests_{$timePeriod}.json");
+    $contents = getCachedData("https://recollect.net/api/dashboard/{$location}/services/waste/count/supportrequests/{$timePeriod}");
+    //$contents = getCachedData("testdata_delete/{$location}_supportrequests_{$timePeriod}.json");
     //$contents = file_get_contents("https://recollect.net/api/dashboard/{$location}/services/waste/count/supportrequests/{$timePeriod}");
     $data = json_decode($contents, TRUE);
 

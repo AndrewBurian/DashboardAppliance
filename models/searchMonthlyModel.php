@@ -18,23 +18,22 @@ class searchMonthlyModel extends baseModel {
      */
     function getData($widgetParams) {
 
-        $amount = getRecollectCount($widgetParams, 'searches', '1month');
+        $amount = getRecollectCount($widgetParams['city'], $widgetParams['category'], $widgetParams['time']);
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;
-        if ($prior > 0){
-           $percent = ($change / $prior) * 100;
-        }
-        else {
+        if ($prior > 0) {
+            $percent = ($change / $prior) * 100;
+        } else {
             $percent = $change * 100;
         }
         $params = array();
-        $params['title'] = "Recent Monthly Searches";
+        $params['title'] = $widgetParams['title'];
         $params['text'] = $last;
         $params['percentage'] = ceil($percent) . "% change vs. last week";
         $params['footer'] = "Last updated on " . date("D M j");
-        $params['footerColor'] = "#c94118";
-        $params['backgroundColor'] = "#EC663C";
+        $params['footerColor'] = $widgetParams['footerColor'];
+        $params['backgroundColor'] = $widgetParams['backgroundColor'];
         if (ceil($percent) > 0) {
             $params['arrowImage'] = 'data/images/up.png';
         } else if (ceil($percent) < 0) {

@@ -1,0 +1,13 @@
+{
+    "time": 30,
+    "additionalParams": {"city": "vancouver",
+        "time": "1month",
+        "title": "Test",
+        "comparePeriod": " Last 7 days",
+        "footerColor": "#c94118",
+        "backgroundColor": "#EC663C"},
+    "model": "supportRequestModel",
+    "type": "number",
+    "width": 1,
+    "height": 1
+}

@@ -9,7 +9,7 @@ require_once 'helpers/recollectAPI.php';
  *
  * @author  Mat Siwoski
  */
-class supportRequestsModel extends baseModel {
+class supportRequestModel extends baseModel {
 
     /**
      * Set the correct parameter information.
@@ -18,7 +18,7 @@ class supportRequestsModel extends baseModel {
      */
     function getData($widgetParams) {
 
-        $amount = getRecollectSupportRequests($widgetParams["location"], $widgetParams["period"]);
+        $amount = getRecollectSupportRequests($widgetParams['city'], $widgetParams['time']);
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;
@@ -29,13 +29,13 @@ class supportRequestsModel extends baseModel {
             $percent = $change * 100;
         }
         $params = array();
-        $params['title'] = $widgetParams["title"];
+        $params['title'] = $widgetParams['title'];
         $params['text'] = $last;
-        $params['percentage'] = abs(ceil($percent)) . "% vs. " . $widgetParams["comparePeriod"];
+        $params['percentage'] = abs(ceil($percent)) . "% vs. " . $widgetParams['comparePeriod'];
 
         $params['footer'] = "Last updated on " . date("D M j");
-        $params['backgroundColor'] = $widgetParams["colour"];
-        $params['footerColor'] = "#ce6a00";
+        $params['backgroundColor'] = $widgetParams['backgroundColor'];
+        $params['footerColor'] = $widgetParams['footerColor'];
         if (ceil($percent) > 0) {
             $params['arrowImage'] = 'data/images/up.png';
         } else if (ceil($percent) < 0) {

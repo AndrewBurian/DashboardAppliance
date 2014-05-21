@@ -51,7 +51,7 @@ function buildWidget($id) {
     /* assign the widget id and the html fragment to an array */
     $widgetArray = array(
         'id' => $id,
-        'script' => $widget['script'],
+        'script' => $widgetData['script'],
         'html' => $html
     );
 

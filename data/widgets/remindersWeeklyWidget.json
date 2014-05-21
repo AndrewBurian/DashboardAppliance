@@ -1,6 +1,6 @@
 { 
 	"time": 30,
-        "additionalParams": "vancouver",
+        "additionalParams": {"city":"vancouver", "category":"reminders", "time": "1week","title":"New reminders in past week", "footerColor":"#c94118","backgroundColor":"#EC663C"},
 	"model": "remindersWeeklyModel", 
 	"type": "number", 
 	"width": 1, 

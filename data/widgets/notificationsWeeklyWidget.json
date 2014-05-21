@@ -1,6 +1,6 @@
 { 
 	"time": 30,
-        "additionalParams": "vancouver",
+        "additionalParams": {"city":"vancouver", "category":"notifications", "time": "1week","title":"Notifications in past week", "footerColor":"#c94118","backgroundColor":"#EC663C"},
 	"model": "notificationsWeeklyModel", 
 	"type": "number", 
 	"width": 1, 

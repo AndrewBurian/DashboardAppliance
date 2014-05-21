@@ -18,7 +18,7 @@ class notificationsWeeklyModel extends baseModel {
      */
     function getData($widgetParams) {
 
-        $amount = getRecollectCount($widgetParams, 'notifications', '1week');
+        $amount = getRecollectCount($widgetParams['city'],$widgetParams['category'] ,$widgetParams['time'] );
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;
@@ -29,12 +29,12 @@ class notificationsWeeklyModel extends baseModel {
             $percent = $change * 100;
         }
         $params = array();
-        $params['title'] = "Notifications in past week";
+        $params['title'] = $widgetParams['title'];
         $params['text'] = $last;
         $params['percentage'] = abs(ceil($percent)) . "% vs. prior 7 days";
         $params['footer'] = "Last updated on " . date("D M j");
-        $params['footerColor'] = "#c94118";
-        $params['backgroundColor'] = "#EC663C";
+        $params['footerColor'] = $widgetParams['footerColor'];
+        $params['backgroundColor'] = $widgetParams['backgroundColor'];
         if (ceil($percent) > 0) {
             $params['arrowImage'] = 'data/images/up.png';
         } else if (ceil($percent) < 0) {

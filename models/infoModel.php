@@ -9,8 +9,8 @@ class infoModel extends baseModel {
 
 
         $params = array();
-        $params['title'] = "Recent Weekly Searches";
-        $params['text'] = "This map shows the last 50 searchs in the Vancouver represented by the Google heatmaps.";
+        $params['title'] = $widgetParams['title'];
+        $params['text'] = $widgetParams['text'];
         //Confirmed working
         //$params['text'] = getRecollectCount("olathe", "reminders", "1week");
 

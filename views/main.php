@@ -15,8 +15,9 @@
                 src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization&sensor=false">
         </script>
         <script src="assets/js/core.js"></script>
-        
+<!--       <script src="assets/js/coffee-script.js" type="text/javascript" ></script>
+      <script src="assets/js/core.coffee"></script>-->
         <div id="scripts"></div>
-
+        
     </body>
 </html>

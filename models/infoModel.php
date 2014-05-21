@@ -16,7 +16,7 @@ class infoModel extends baseModel {
 
         $params['footer'] = "Last updated on " . date("D M j");
 
-        $params['backgroundColor'] = "#aaa";
+        $params['backgroundColor'] = "#347602";
 
         return $params;
     }

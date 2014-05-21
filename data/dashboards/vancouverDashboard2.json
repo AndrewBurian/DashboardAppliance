@@ -1,6 +1,6 @@
 {
     "time": 1,
-    "name": "Location of the most recent searches",
+    "name": "Location of the Most Recent Searches",
     "widgets": [
         "vancouverLargeMapWidget",
         "infoWidget",

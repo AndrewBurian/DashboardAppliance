@@ -17,7 +17,7 @@ class countModel extends baseModel {
      */
     function getData($widgetParams) {
 
-        $amount = getRecollectCount($widgetParams["location"], $widgetParams["search"], $widgetParams["period"]);
+        $amount = getRecollectCount($widgetParams["city"], $widgetParams["category"], $widgetParams["time"]);
         $prior = $amount['prior'];
         $last = $amount['last'];
         $change = $last - $prior;
@@ -33,8 +33,8 @@ class countModel extends baseModel {
         $params['percentage'] = abs(ceil($percent)) . "% vs. " . $widgetParams["comparePeriod"];
 
         $params['footer'] = "Last updated on " . date("D M j");
-        $params['footerColor'] = "#c94118";
-        $params['backgroundColor'] = $widgetParams["colour"];
+        $params['footerColor'] = $widgetParams["footerColor"];
+        $params['backgroundColor'] = $widgetParams["backgroundColor"];
         if (ceil($percent) > 0) {
             $params['arrowImage'] = 'data/images/up.png';
         } else if (ceil($percent) < 0) {

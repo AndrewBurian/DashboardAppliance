@@ -111,8 +111,8 @@ echo "
 
 disable_splash=1
 disable_overscan=1
-framebuffer_width=1900
-framebuffer_height=1200
+framebuffer_width=1920
+framebuffer_height=1080
 framebuffer_depth=32
 framebuffer_ignore_alpha=1
 hdmi_pixel_encoding=1
